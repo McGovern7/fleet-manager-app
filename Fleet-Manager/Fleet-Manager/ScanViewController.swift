@@ -16,6 +16,7 @@ class ScanViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
         // gradient background
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
@@ -24,6 +25,7 @@ class ScanViewController: UIViewController {
             UIColor.white.cgColor
         ]
         view.layer.addSublayer(gradientLayer)
+         */
     }
 
 }

@@ -25,6 +25,7 @@ class LogsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        /*
         // gradient background
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
@@ -33,6 +34,7 @@ class LogsViewController: UIViewController {
             UIColor.white.cgColor
         ]
         view.layer.addSublayer(gradientLayer)
+         */
     }
 
 
