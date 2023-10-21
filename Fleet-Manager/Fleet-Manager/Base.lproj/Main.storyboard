@@ -46,6 +46,8 @@
                             <constraint firstItem="N5F-nm-u0F" firstAttribute="top" secondItem="eqe-X6-E5M" secondAttribute="top" constant="70" id="GiY-KH-o4D"/>
                             <constraint firstItem="lxJ-ZI-mHF" firstAttribute="top" secondItem="eqe-X6-E5M" secondAttribute="top" constant="20" id="IcF-6s-Zf0"/>
                             <constraint firstItem="eqe-X6-E5M" firstAttribute="trailing" secondItem="lxJ-ZI-mHF" secondAttribute="trailing" constant="122" id="M2A-d1-dz0"/>
+                            <constraint firstItem="eqe-X6-E5M" firstAttribute="trailing" secondItem="N5F-nm-u0F" secondAttribute="trailing" constant="215" id="VT9-mg-8ds"/>
+                            <constraint firstItem="6Zu-Zj-6W2" firstAttribute="leading" secondItem="eqe-X6-E5M" secondAttribute="leading" constant="215" id="bhi-nL-Cqc"/>
                             <constraint firstItem="N5F-nm-u0F" firstAttribute="leading" secondItem="eqe-X6-E5M" secondAttribute="leading" constant="15" id="dAu-V2-mbv"/>
                             <constraint firstItem="6Zu-Zj-6W2" firstAttribute="top" secondItem="lxJ-ZI-mHF" secondAttribute="bottom" constant="20" id="gtX-tf-t8k"/>
                             <constraint firstItem="6Zu-Zj-6W2" firstAttribute="top" secondItem="eqe-X6-E5M" secondAttribute="top" constant="70" id="puq-SZ-Ycj"/>
@@ -86,8 +88,11 @@
                                     <segment title="Search"/>
                                 </segments>
                             </segmentedControl>
-                            <searchBar contentMode="redraw" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpU-AT-jXL">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="wpU-AT-jXL">
                                 <rect key="frame" x="0.0" y="191" width="393" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="393" id="qqv-N6-kzp"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="jKd-PR-Vo5" id="nkq-GB-GHv"/>
@@ -125,7 +130,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBM-0j-W9B">
-                                <rect key="frame" x="164" y="79" width="65" height="30"/>
+                                <rect key="frame" x="164" y="85" width="65" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -134,7 +139,7 @@
                         <viewLayoutGuide key="safeArea" id="LBV-bG-1tO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="RBM-0j-W9B" firstAttribute="top" secondItem="LBV-bG-1tO" secondAttribute="top" constant="20" id="8i3-Fn-Xb8"/>
+                            <constraint firstItem="RBM-0j-W9B" firstAttribute="top" secondItem="LBV-bG-1tO" secondAttribute="top" constant="26" id="8i3-Fn-Xb8"/>
                             <constraint firstItem="LBV-bG-1tO" firstAttribute="trailing" secondItem="RBM-0j-W9B" secondAttribute="trailing" constant="164" id="USQ-BW-OON"/>
                             <constraint firstItem="RBM-0j-W9B" firstAttribute="leading" secondItem="LBV-bG-1tO" secondAttribute="leading" constant="164" id="yVk-s1-KZa"/>
                         </constraints>
