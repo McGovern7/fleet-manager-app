@@ -11,7 +11,14 @@ class MyPlanesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // gradient background
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [
+            UIColor.systemCyan.cgColor,
+            UIColor.white.cgColor
+        ]
+        view.layer.addSublayer(gradientLayer)
     }
 
 
