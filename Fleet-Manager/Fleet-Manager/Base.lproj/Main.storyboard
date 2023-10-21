@@ -92,6 +92,7 @@
                                 <rect key="frame" x="0.0" y="191" width="393" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="393" id="qqv-N6-kzp"/>
+                                    <constraint firstAttribute="height" constant="44" id="rRG-p0-8Lw"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -108,6 +109,7 @@
                             <constraint firstItem="CWb-cl-Wbg" firstAttribute="top" secondItem="5Et-qR-ZbA" secondAttribute="bottom" constant="25" id="JC7-Er-Rq4"/>
                             <constraint firstItem="Ue1-QD-bpY" firstAttribute="trailing" secondItem="CWb-cl-Wbg" secondAttribute="trailing" constant="134" id="LGn-rJ-Oj1"/>
                             <constraint firstItem="wpU-AT-jXL" firstAttribute="centerX" secondItem="Ue1-QD-bpY" secondAttribute="centerX" id="NeC-ca-dVy"/>
+                            <constraint firstItem="wpU-AT-jXL" firstAttribute="top" secondItem="CWb-cl-Wbg" secondAttribute="bottom" constant="26" id="lxH-yN-1l2"/>
                             <constraint firstItem="Ue1-QD-bpY" firstAttribute="trailing" secondItem="5Et-qR-ZbA" secondAttribute="trailing" constant="116.66666666666669" id="tUe-2b-Rfb"/>
                         </constraints>
                     </view>
