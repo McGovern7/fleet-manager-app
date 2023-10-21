@@ -26,11 +26,17 @@
                                 <rect key="frame" x="15" y="129" width="163" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Time Logs"/>
+                                <connections>
+                                    <action selector="time:" destination="kzo-0d-IPE" eventType="touchUpInside" id="sqf-cC-dr4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zu-Zj-6W2">
                                 <rect key="frame" x="215" y="129" width="163" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Maintenance Logs"/>
+                                <connections>
+                                    <action selector="maintenance:" destination="kzo-0d-IPE" eventType="touchUpInside" id="xky-pB-nGc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eqe-X6-E5M"/>
@@ -42,7 +48,6 @@
                             <constraint firstItem="eqe-X6-E5M" firstAttribute="trailing" secondItem="lxJ-ZI-mHF" secondAttribute="trailing" constant="122" id="M2A-d1-dz0"/>
                             <constraint firstItem="N5F-nm-u0F" firstAttribute="leading" secondItem="eqe-X6-E5M" secondAttribute="leading" constant="15" id="dAu-V2-mbv"/>
                             <constraint firstItem="6Zu-Zj-6W2" firstAttribute="top" secondItem="lxJ-ZI-mHF" secondAttribute="bottom" constant="20" id="gtX-tf-t8k"/>
-                            <constraint firstItem="lxJ-ZI-mHF" firstAttribute="centerX" secondItem="eqe-X6-E5M" secondAttribute="centerX" id="hzR-gl-tCj"/>
                             <constraint firstItem="6Zu-Zj-6W2" firstAttribute="top" secondItem="eqe-X6-E5M" secondAttribute="top" constant="70" id="puq-SZ-Ycj"/>
                             <constraint firstItem="N5F-nm-u0F" firstAttribute="top" secondItem="lxJ-ZI-mHF" secondAttribute="bottom" constant="20" id="uNw-cg-esv"/>
                             <constraint firstItem="lxJ-ZI-mHF" firstAttribute="leading" secondItem="eqe-X6-E5M" secondAttribute="leading" constant="122" id="wKa-Z2-i4U"/>
@@ -58,7 +63,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jNd-dW-lYe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1344.2748091603053" y="604.92957746478874"/>
+            <point key="canvasLocation" x="-683" y="605"/>
         </scene>
         <!--Scan-->
         <scene sceneID="sts-EG-NFT">
@@ -74,32 +79,72 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CWb-cl-Wbg">
-                                <rect key="frame" x="134" y="133" width="125" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CWb-cl-Wbg">
+                                <rect key="frame" x="134" y="134" width="125" height="32"/>
                                 <segments>
                                     <segment title="Scan"/>
                                     <segment title="Search"/>
                                 </segments>
                             </segmentedControl>
+                            <searchBar contentMode="redraw" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpU-AT-jXL">
+                                <rect key="frame" x="0.0" y="191" width="393" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jKd-PR-Vo5" id="nkq-GB-GHv"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ue1-QD-bpY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="CWb-cl-Wbg" firstAttribute="leading" secondItem="Ue1-QD-bpY" secondAttribute="leading" constant="134" id="1Xo-yo-mEP"/>
                             <constraint firstItem="5Et-qR-ZbA" firstAttribute="top" secondItem="Ue1-QD-bpY" secondAttribute="top" constant="20" id="GFB-EY-1gE"/>
                             <constraint firstItem="5Et-qR-ZbA" firstAttribute="leading" secondItem="Ue1-QD-bpY" secondAttribute="leading" constant="116.66666666666669" id="GnD-es-qKQ"/>
-                            <constraint firstItem="5Et-qR-ZbA" firstAttribute="centerX" secondItem="Ue1-QD-bpY" secondAttribute="centerX" id="PDr-gW-VGu"/>
+                            <constraint firstItem="CWb-cl-Wbg" firstAttribute="top" secondItem="5Et-qR-ZbA" secondAttribute="bottom" constant="25" id="JC7-Er-Rq4"/>
+                            <constraint firstItem="Ue1-QD-bpY" firstAttribute="trailing" secondItem="CWb-cl-Wbg" secondAttribute="trailing" constant="134" id="LGn-rJ-Oj1"/>
+                            <constraint firstItem="wpU-AT-jXL" firstAttribute="centerX" secondItem="Ue1-QD-bpY" secondAttribute="centerX" id="NeC-ca-dVy"/>
                             <constraint firstItem="Ue1-QD-bpY" firstAttribute="trailing" secondItem="5Et-qR-ZbA" secondAttribute="trailing" constant="116.66666666666669" id="tUe-2b-Rfb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scan" image="airtag" catalog="system" selectedImage="airtag.fill" id="id9-Bz-hsy"/>
                     <connections>
+                        <outlet property="aircraftSearchBr" destination="wpU-AT-jXL" id="iNV-jb-0Xy"/>
                         <outlet property="scanOrSearch" destination="CWb-cl-Wbg" id="MoV-4v-K5u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVW-EL-Xz5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-529" y="605"/>
+            <point key="canvasLocation" x="31" y="605"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="G65-5z-cQf">
+            <objects>
+                <viewController id="hfY-px-3Eh" customClass="HomeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="69z-9x-fDc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBM-0j-W9B">
+                                <rect key="frame" x="164" y="79" width="65" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LBV-bG-1tO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RBM-0j-W9B" firstAttribute="top" secondItem="LBV-bG-1tO" secondAttribute="top" constant="20" id="8i3-Fn-Xb8"/>
+                            <constraint firstItem="LBV-bG-1tO" firstAttribute="trailing" secondItem="RBM-0j-W9B" secondAttribute="trailing" constant="164" id="USQ-BW-OON"/>
+                            <constraint firstItem="RBM-0j-W9B" firstAttribute="leading" secondItem="LBV-bG-1tO" secondAttribute="leading" constant="164" id="yVk-s1-KZa"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house.fill" id="EsF-1O-LsM"/>
+                    <navigationItem key="navigationItem" id="1bu-4g-YgK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DId-e5-3sD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2138" y="605"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uR1-I7-lEZ">
@@ -111,14 +156,15 @@
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="jKd-PR-Vo5" kind="relationship" relationship="viewControllers" id="Ej0-nD-hy6"/>
+                        <segue destination="hfY-px-3Eh" kind="relationship" relationship="viewControllers" id="fEC-9Y-bJY"/>
+                        <segue destination="KEJ-4a-xFb" kind="relationship" relationship="viewControllers" id="1ZK-HL-oAk"/>
                         <segue destination="kzo-0d-IPE" kind="relationship" relationship="viewControllers" id="yUX-n8-4bj"/>
-                        <segue destination="KEJ-4a-xFb" kind="relationship" relationship="viewControllers" id="8SM-v4-Ci7"/>
+                        <segue destination="jKd-PR-Vo5" kind="relationship" relationship="viewControllers" id="Ej0-nD-hy6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMR-Zi-JDB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1342" y="-275"/>
+            <point key="canvasLocation" x="-1047" y="-176"/>
         </scene>
         <!--My Planes-->
         <scene sceneID="MqO-49-NXx">
@@ -141,14 +187,14 @@
                             <constraint firstItem="Mip-nF-n19" firstAttribute="trailing" secondItem="jEq-tu-V4a" secondAttribute="trailing" constant="141" id="7RE-N8-rUX"/>
                             <constraint firstItem="jEq-tu-V4a" firstAttribute="top" secondItem="Mip-nF-n19" secondAttribute="top" constant="20" id="b1v-dK-yKN"/>
                             <constraint firstItem="jEq-tu-V4a" firstAttribute="leading" secondItem="Mip-nF-n19" secondAttribute="leading" constant="141" id="fPQ-pZ-6Z6"/>
-                            <constraint firstItem="jEq-tu-V4a" firstAttribute="centerX" secondItem="Mip-nF-n19" secondAttribute="centerX" id="hWp-Md-D6g"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Planes" image="airplane.circle" catalog="system" selectedImage="airplane.circle.fill" id="MOO-Je-MuL"/>
+                    <tabBarItem key="tabBarItem" title="My Planes" image="airplane.circle" catalog="system" selectedImage="airplane.circle.fill" id="cNn-tx-wLF"/>
+                    <navigationItem key="navigationItem" id="QjF-vS-q0y"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2e8-9p-mMI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2172" y="605"/>
+            <point key="canvasLocation" x="-1393" y="605"/>
         </scene>
     </scenes>
     <resources>
@@ -156,6 +202,8 @@
         <image name="airplane.circle.fill" catalog="system" width="128" height="123"/>
         <image name="airtag" catalog="system" width="128" height="123"/>
         <image name="airtag.fill" catalog="system" width="128" height="123"/>
+        <image name="house" catalog="system" width="128" height="104"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="list.bullet.circle" catalog="system" width="128" height="123"/>
         <image name="list.bullet.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
