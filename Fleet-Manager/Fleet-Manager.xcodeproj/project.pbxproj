@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42700BCB2AFB88B700A5C312 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700BCA2AFB88B700A5C312 /* ContentView.swift */; };
+		42700BCD2AFB8FE200A5C312 /* FleetManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700BCC2AFB8FE200A5C312 /* FleetManagerApp.swift */; };
 		C10DA7042AE351C200C3C2CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DA7032AE351C200C3C2CD /* AppDelegate.swift */; };
 		C10DA7062AE351C200C3C2CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DA7052AE351C200C3C2CD /* SceneDelegate.swift */; };
 		C10DA7082AE351C200C3C2CD /* MyPlanesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DA7072AE351C200C3C2CD /* MyPlanesViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42700BCA2AFB88B700A5C312 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		42700BCC2AFB8FE200A5C312 /* FleetManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleetManagerApp.swift; sourceTree = "<group>"; };
 		C10DA7002AE351C200C3C2CD /* Fleet-Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fleet-Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10DA7032AE351C200C3C2CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C10DA7052AE351C200C3C2CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 				C10DA70C2AE351C200C3C2CD /* Assets.xcassets */,
 				C10DA70E2AE351C200C3C2CD /* LaunchScreen.storyboard */,
 				C10DA7112AE351C200C3C2CD /* Info.plist */,
+				42700BCA2AFB88B700A5C312 /* ContentView.swift */,
+				42700BCC2AFB8FE200A5C312 /* FleetManagerApp.swift */,
 			);
 			path = "Fleet-Manager";
 			sourceTree = "<group>";
@@ -145,8 +151,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C10DA71E2AE3561D00C3C2CD /* LogsViewController.swift in Sources */,
+				42700BCD2AFB8FE200A5C312 /* FleetManagerApp.swift in Sources */,
 				C10DA7082AE351C200C3C2CD /* MyPlanesViewController.swift in Sources */,
 				C10DA71C2AE355C800C3C2CD /* ScanViewController.swift in Sources */,
+				42700BCB2AFB88B700A5C312 /* ContentView.swift in Sources */,
 				C10DA7042AE351C200C3C2CD /* AppDelegate.swift in Sources */,
 				C10DA7062AE351C200C3C2CD /* SceneDelegate.swift in Sources */,
 			);
