@@ -7,33 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42700BCD2AFB8FE200A5C312 /* FleetManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42700BCC2AFB8FE200A5C312 /* FleetManagerApp.swift */; };
-		C10DA7042AE351C200C3C2CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DA7032AE351C200C3C2CD /* AppDelegate.swift */; };
-		C10DA7062AE351C200C3C2CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DA7052AE351C200C3C2CD /* SceneDelegate.swift */; };
-		C10DA7082AE351C200C3C2CD /* MyPlanesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DA7072AE351C200C3C2CD /* MyPlanesViewController.swift */; };
-		C10DA70B2AE351C200C3C2CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C10DA7092AE351C200C3C2CD /* Main.storyboard */; };
-		C10DA70D2AE351C200C3C2CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C10DA70C2AE351C200C3C2CD /* Assets.xcassets */; };
-		C10DA7102AE351C200C3C2CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C10DA70E2AE351C200C3C2CD /* LaunchScreen.storyboard */; };
-		C10DA71C2AE355C800C3C2CD /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DA71B2AE355C800C3C2CD /* ScanViewController.swift */; };
-		C10DA71E2AE3561D00C3C2CD /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DA71D2AE3561D00C3C2CD /* LogsViewController.swift */; };
+		420E6F5B2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420E6F5A2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift */; };
+		420E6F5D2B04AA6100DA5646 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420E6F5C2B04AA6100DA5646 /* ContentView.swift */; };
+		420E6F5F2B04AA6200DA5646 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420E6F5E2B04AA6200DA5646 /* Assets.xcassets */; };
+		420E6F622B04AA6200DA5646 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420E6F612B04AA6200DA5646 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		42700BCC2AFB8FE200A5C312 /* FleetManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleetManagerApp.swift; sourceTree = "<group>"; };
-		C10DA7002AE351C200C3C2CD /* Fleet-Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fleet-Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C10DA7032AE351C200C3C2CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C10DA7052AE351C200C3C2CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C10DA7072AE351C200C3C2CD /* MyPlanesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlanesViewController.swift; sourceTree = "<group>"; };
-		C10DA70A2AE351C200C3C2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C10DA70C2AE351C200C3C2CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C10DA70F2AE351C200C3C2CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C10DA7112AE351C200C3C2CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C10DA71B2AE355C800C3C2CD /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		C10DA71D2AE3561D00C3C2CD /* LogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
+		420E6F572B04AA6100DA5646 /* Fleet-Manager-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fleet-Manager-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		420E6F5A2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fleet_Manager_SwiftUIApp.swift; sourceTree = "<group>"; };
+		420E6F5C2B04AA6100DA5646 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		420E6F5E2B04AA6200DA5646 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		420E6F612B04AA6200DA5646 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C10DA6FD2AE351C200C3C2CD /* Frameworks */ = {
+		420E6F542B04AA6100DA5646 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,75 +32,77 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C10DA6F72AE351C200C3C2CD = {
+		420E6F4E2B04AA6100DA5646 = {
 			isa = PBXGroup;
 			children = (
-				C10DA7022AE351C200C3C2CD /* Fleet-Manager */,
-				C10DA7012AE351C200C3C2CD /* Products */,
+				420E6F592B04AA6100DA5646 /* Fleet-Manager-SwiftUI */,
+				420E6F582B04AA6100DA5646 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C10DA7012AE351C200C3C2CD /* Products */ = {
+		420E6F582B04AA6100DA5646 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C10DA7002AE351C200C3C2CD /* Fleet-Manager.app */,
+				420E6F572B04AA6100DA5646 /* Fleet-Manager-SwiftUI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C10DA7022AE351C200C3C2CD /* Fleet-Manager */ = {
+		420E6F592B04AA6100DA5646 /* Fleet-Manager-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				C10DA7032AE351C200C3C2CD /* AppDelegate.swift */,
-				C10DA7052AE351C200C3C2CD /* SceneDelegate.swift */,
-				C10DA7072AE351C200C3C2CD /* MyPlanesViewController.swift */,
-				C10DA71D2AE3561D00C3C2CD /* LogsViewController.swift */,
-				C10DA71B2AE355C800C3C2CD /* ScanViewController.swift */,
-				C10DA7092AE351C200C3C2CD /* Main.storyboard */,
-				C10DA70C2AE351C200C3C2CD /* Assets.xcassets */,
-				C10DA70E2AE351C200C3C2CD /* LaunchScreen.storyboard */,
-				C10DA7112AE351C200C3C2CD /* Info.plist */,
-				42700BCC2AFB8FE200A5C312 /* FleetManagerApp.swift */,
+				420E6F5A2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift */,
+				420E6F5C2B04AA6100DA5646 /* ContentView.swift */,
+				420E6F5E2B04AA6200DA5646 /* Assets.xcassets */,
+				420E6F602B04AA6200DA5646 /* Preview Content */,
 			);
-			path = "Fleet-Manager";
+			path = "Fleet-Manager-SwiftUI";
+			sourceTree = "<group>";
+		};
+		420E6F602B04AA6200DA5646 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				420E6F612B04AA6200DA5646 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C10DA6FF2AE351C200C3C2CD /* Fleet-Manager */ = {
+		420E6F562B04AA6100DA5646 /* Fleet-Manager-SwiftUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C10DA7142AE351C200C3C2CD /* Build configuration list for PBXNativeTarget "Fleet-Manager" */;
+			buildConfigurationList = 420E6F652B04AA6200DA5646 /* Build configuration list for PBXNativeTarget "Fleet-Manager-SwiftUI" */;
 			buildPhases = (
-				C10DA6FC2AE351C200C3C2CD /* Sources */,
-				C10DA6FD2AE351C200C3C2CD /* Frameworks */,
-				C10DA6FE2AE351C200C3C2CD /* Resources */,
+				420E6F532B04AA6100DA5646 /* Sources */,
+				420E6F542B04AA6100DA5646 /* Frameworks */,
+				420E6F552B04AA6100DA5646 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Fleet-Manager";
-			productName = "Fleet-Manager";
-			productReference = C10DA7002AE351C200C3C2CD /* Fleet-Manager.app */;
+			name = "Fleet-Manager-SwiftUI";
+			productName = "Fleet-Manager-SwiftUI";
+			productReference = 420E6F572B04AA6100DA5646 /* Fleet-Manager-SwiftUI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C10DA6F82AE351C200C3C2CD /* Project object */ = {
+		420E6F4F2B04AA6100DA5646 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					C10DA6FF2AE351C200C3C2CD = {
-						CreatedOnToolsVersion = 14.1;
+					420E6F562B04AA6100DA5646 = {
+						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
 			};
-			buildConfigurationList = C10DA6FB2AE351C200C3C2CD /* Build configuration list for PBXProject "Fleet-Manager" */;
+			buildConfigurationList = 420E6F522B04AA6100DA5646 /* Build configuration list for PBXProject "Fleet-Manager-SwiftUI" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -119,69 +110,46 @@
 				en,
 				Base,
 			);
-			mainGroup = C10DA6F72AE351C200C3C2CD;
-			productRefGroup = C10DA7012AE351C200C3C2CD /* Products */;
+			mainGroup = 420E6F4E2B04AA6100DA5646;
+			productRefGroup = 420E6F582B04AA6100DA5646 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C10DA6FF2AE351C200C3C2CD /* Fleet-Manager */,
+				420E6F562B04AA6100DA5646 /* Fleet-Manager-SwiftUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C10DA6FE2AE351C200C3C2CD /* Resources */ = {
+		420E6F552B04AA6100DA5646 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C10DA7102AE351C200C3C2CD /* LaunchScreen.storyboard in Resources */,
-				C10DA70D2AE351C200C3C2CD /* Assets.xcassets in Resources */,
-				C10DA70B2AE351C200C3C2CD /* Main.storyboard in Resources */,
+				420E6F622B04AA6200DA5646 /* Preview Assets.xcassets in Resources */,
+				420E6F5F2B04AA6200DA5646 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C10DA6FC2AE351C200C3C2CD /* Sources */ = {
+		420E6F532B04AA6100DA5646 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C10DA71E2AE3561D00C3C2CD /* LogsViewController.swift in Sources */,
-				42700BCD2AFB8FE200A5C312 /* FleetManagerApp.swift in Sources */,
-				C10DA7082AE351C200C3C2CD /* MyPlanesViewController.swift in Sources */,
-				C10DA71C2AE355C800C3C2CD /* ScanViewController.swift in Sources */,
-				C10DA7042AE351C200C3C2CD /* AppDelegate.swift in Sources */,
-				C10DA7062AE351C200C3C2CD /* SceneDelegate.swift in Sources */,
+				420E6F5D2B04AA6100DA5646 /* ContentView.swift in Sources */,
+				420E6F5B2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		C10DA7092AE351C200C3C2CD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C10DA70A2AE351C200C3C2CD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C10DA70E2AE351C200C3C2CD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C10DA70F2AE351C200C3C2CD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		C10DA7122AE351C200C3C2CD /* Debug */ = {
+		420E6F632B04AA6200DA5646 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -214,7 +182,8 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -228,20 +197,22 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		C10DA7132AE351C200C3C2CD /* Release */ = {
+		420E6F642B04AA6200DA5646 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -274,7 +245,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -282,29 +254,29 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		C10DA7152AE351C200C3C2CD /* Debug */ = {
+		420E6F662B04AA6200DA5646 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GMAC2SY4S6;
+				DEVELOPMENT_ASSET_PATHS = "\"Fleet-Manager-SwiftUI/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Fleet-Manager/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,7 +284,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Luke-McGovern.Fleet-Manager";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.mgaetano.Fleet-Manager-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -320,19 +292,19 @@
 			};
 			name = Debug;
 		};
-		C10DA7162AE351C200C3C2CD /* Release */ = {
+		420E6F672B04AA6200DA5646 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GMAC2SY4S6;
+				DEVELOPMENT_ASSET_PATHS = "\"Fleet-Manager-SwiftUI/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Fleet-Manager/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -340,7 +312,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Luke-McGovern.Fleet-Manager";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.mgaetano.Fleet-Manager-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -351,25 +323,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C10DA6FB2AE351C200C3C2CD /* Build configuration list for PBXProject "Fleet-Manager" */ = {
+		420E6F522B04AA6100DA5646 /* Build configuration list for PBXProject "Fleet-Manager-SwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C10DA7122AE351C200C3C2CD /* Debug */,
-				C10DA7132AE351C200C3C2CD /* Release */,
+				420E6F632B04AA6200DA5646 /* Debug */,
+				420E6F642B04AA6200DA5646 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C10DA7142AE351C200C3C2CD /* Build configuration list for PBXNativeTarget "Fleet-Manager" */ = {
+		420E6F652B04AA6200DA5646 /* Build configuration list for PBXNativeTarget "Fleet-Manager-SwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C10DA7152AE351C200C3C2CD /* Debug */,
-				C10DA7162AE351C200C3C2CD /* Release */,
+				420E6F662B04AA6200DA5646 /* Debug */,
+				420E6F672B04AA6200DA5646 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C10DA6F82AE351C200C3C2CD /* Project object */;
+	rootObject = 420E6F4F2B04AA6100DA5646 /* Project object */;
 }
