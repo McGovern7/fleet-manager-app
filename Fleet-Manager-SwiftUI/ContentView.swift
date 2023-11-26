@@ -64,7 +64,7 @@ struct NavTab: View {
             Button() {
                 currScreen = Screen.scan
             } label: {
-                Image(systemName: "wave.3.left.circle")
+                Image(systemName: "magnifyingglass.circle")
                     .resizable()
                     .scaledToFit()
                     .foregroundColor({
