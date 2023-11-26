@@ -64,7 +64,7 @@ struct NavTab: View {
             Button() {
                 currScreen = Screen.scan
             } label: {
-                Image(systemName: "airtag")
+                Image(systemName: "wave.3.left.circle")
                     .resizable()
                     .scaledToFit()
                     .foregroundColor({
@@ -118,27 +118,6 @@ struct HomeView: View {
 struct HangarView: View {
     var body: some View {
         Text("My Hangar")
-            .font(.largeTitle)
-            .padding(20)
-            .padding(.top, 50)
-            .frame(
-                maxWidth: .infinity,
-                alignment: .center
-              )
-          .background(Color(red: 56/255, green: 223/255, blue: 223/255)
-              .ignoresSafeArea())
-          .clipShape(
-              .rect(
-                  bottomLeadingRadius: 30,
-                  bottomTrailingRadius: 30
-              )
-          )
-    }
-}
-
-struct ScanView: View {
-    var body: some View {
-        Text("Aircraft Search")
             .font(.largeTitle)
             .padding(20)
             .padding(.top, 50)
