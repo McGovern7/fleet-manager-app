@@ -7,6 +7,27 @@
 
 import SwiftUI
 
+let json = """
+[{"tail_num":"N804BT","nfc_uid":268435455,"make":"Cessna","model":"172 Skyhawk","maintenance_log_id":1234},{"tail_num":"N805BT","nfc_uid":268435455,"make":"Cessna","model":"172 Skyhawk","maintenance_log_id":1234},{"tail_num":"N806BT","nfc_uid":268435455,"make":"Cessna","model":"182 Skyhawk","maintenance_log_id":1234}]
+""".data(using:.utf8)!
+
+struct AircraftModel: Codable {
+    var tail_num: String
+    var nfc_uid: Int64
+    var make: String
+    var model: String
+    var maintenance_log_id: Int
+}
+
+let decoder = JSONDecoder()
+let products = try! decoder.decode([AircraftModel].self, from:json)
+
+func printJSONElements() {
+    for product in products{
+        print("\(product)")
+    }
+}
+
 struct ScanView: View {
     
     @State private var searchText = ""
@@ -31,14 +52,19 @@ struct ScanView: View {
               )
             NavigationStack(){
                 List{
-                    ForEach(filteredAircraft, id: \.self){ item in
-                        Text("\(item)")
+                    ForEach(filteredAircraft, id: \.self.tail_num){ item in
+                        VStack(alignment: .leading){
+                            Text("\(item.tail_num)")
+                                .font(.headline)
+                            Text("\(item.make) \(item.model)")
+                                .font(.subheadline)
+                        }
                     }
                 }
                 .toolbar{
                     ToolbarItem(placement: .bottomBar){
                         HStack{
-                            Button(action:{}){
+                            Button(action:printJSONElements){
                                 Image(systemName:"sensor.tag.radiowaves.forward")
                                     .font(.title)
                                     .foregroundColor(.accentColor)
@@ -61,11 +87,15 @@ struct ScanView: View {
         }
     }
     
-    var filteredAircraft: [String]{
+    var filteredAircraft: [AircraftModel]{
         if searchText.isEmpty {
-            return ["All"]
+            return products
         }else{
-            return ["Filtered"]
+            return products.filter{
+                $0.tail_num.contains(searchText)
+                || $0.model.contains(searchText)
+                || $0.make.contains(searchText)
+            }
         }
     }
 }
