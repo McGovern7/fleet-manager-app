@@ -47,7 +47,7 @@ struct ScanView: View {
                                 
                             }
                             .fontWeight(.bold)
-                            .padding(10)
+                            .padding(2)
                             .background(Color.primary)
                             .clipShape(
                                 RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
