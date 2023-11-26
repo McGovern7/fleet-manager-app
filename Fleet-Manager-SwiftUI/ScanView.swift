@@ -40,11 +40,18 @@ struct ScanView: View {
                         HStack{
                             Button(action:{}){
                                 Image(systemName:"sensor.tag.radiowaves.forward")
+                                    .font(.title)
+                                    .foregroundColor(.accentColor)
+                                Text("Scan")
+                                    .foregroundColor(.accentColor)
                                 
                             }
+                            .fontWeight(.bold)
                             .padding(10)
-                            .background(Color.white)
-                            .clipShape(Circle())
+                            .background(Color.primary)
+                            .clipShape(
+                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                            )
                         }.padding(.bottom, 40)
                     }
                 }
