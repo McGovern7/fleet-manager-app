@@ -23,6 +23,7 @@
 		420E6F612B04AA6200DA5646 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6004578C2B1166E500DE825E /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		60A888BF2B14329500C1F93A /* NFCController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCController.swift; sourceTree = "<group>"; };
+		60A888C12B14338F00C1F93A /* Fleet-Manager-SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fleet-Manager-SwiftUI.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +56,7 @@
 		420E6F592B04AA6100DA5646 /* Fleet-Manager-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				60A888C12B14338F00C1F93A /* Fleet-Manager-SwiftUI.entitlements */,
 				420E6F5A2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift */,
 				420E6F5C2B04AA6100DA5646 /* ContentView.swift */,
 				6004578C2B1166E500DE825E /* ScanView.swift */,
@@ -277,6 +279,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fleet-Manager-SwiftUI/Fleet-Manager-SwiftUI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fleet-Manager-SwiftUI/Preview Content\"";
@@ -305,6 +308,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Fleet-Manager-SwiftUI/Fleet-Manager-SwiftUI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fleet-Manager-SwiftUI/Preview Content\"";
