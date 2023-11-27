@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftNFC
 
 // Only thing that differs is the tail num
 let json = """
@@ -27,6 +28,8 @@ let decoder = JSONDecoder()
 let products = try! decoder.decode([AircraftModel].self, from:json)
 
 struct ScanView: View {
+    
+    @ObservedObject var NFCR = NFCReader()
     
     @State private var searchText = ""
     
@@ -62,7 +65,7 @@ struct ScanView: View {
                 .toolbar{
                     ToolbarItem(placement: .bottomBar){
                         HStack{
-                            Button(action:{/*Trigger NFC scan.*/}){
+                            Button(action:{NFCR.read()}){
                                 Image(systemName:"sensor.tag.radiowaves.forward")
                                     .font(.title)
                                     .foregroundColor(.accentColor)
@@ -81,6 +84,7 @@ struct ScanView: View {
                 }
             }
             .searchable(text:$searchText)
+            TextEditor(text: $NFCR.raw)
             
         }
     }
