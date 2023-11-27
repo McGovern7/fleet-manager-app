@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftNFC
 
 // Only thing that differs is the tail num
 let json = """
@@ -29,7 +28,7 @@ let products = try! decoder.decode([AircraftModel].self, from:json)
 
 struct ScanView: View {
     
-    @ObservedObject var NFCR = NFCReader()
+    @ObservedObject var NFCR = MiFareReader()
     
     @State private var searchText = ""
     
@@ -84,7 +83,7 @@ struct ScanView: View {
                 }
             }
             .searchable(text:$searchText)
-            TextEditor(text: $NFCR.raw)
+            TextEditor(text: $NFCR.message)
             
         }
     }
