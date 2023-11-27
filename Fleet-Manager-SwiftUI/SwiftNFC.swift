@@ -3,7 +3,8 @@ import CoreNFC
 
 @available(iOS 13.0, *)
 public class MiFareReader: NSObject, ObservableObject, NFCTagReaderSessionDelegate{
-    @Published var message: String = ""
+    @Published var hexID: String = ""
+    @Published var intID: UInt64 = 0
     public var session: NFCTagReaderSession?
     
     public func read(){
@@ -25,7 +26,12 @@ public class MiFareReader: NSObject, ObservableObject, NFCTagReaderSessionDelega
         DispatchQueue.main.async{
             for tag in tags{
                 if case let .miFare(mifareTag) = tag {
-                    self.message = "\(mifareTag.identifier.base64EncodedString())"
+                    self.hexID = "\(mifareTag.identifier.map{String(format:"%02hhX", $0)}.joined(separator: ":"))"
+                    mifareTag.identifier.withUnsafeBytes({ tagBytes in
+                        withUnsafeMutableBytes(of: &self.intID){intBytes in
+                            intBytes.copyBytes(from: tagBytes.reversed())
+                        }
+                    })
                 }
             }
         }

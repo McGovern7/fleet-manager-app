@@ -83,7 +83,8 @@ struct ScanView: View {
                 }
             }
             .searchable(text:$searchText)
-            TextEditor(text: $NFCR.message)
+            Text(NFCR.hexID)
+            Text("\(NFCR.intID)")
             
         }
     }
