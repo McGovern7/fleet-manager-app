@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreNFC
 
 // Only thing that differs is the tail num
 let json = """
@@ -62,33 +63,36 @@ struct ScanView: View {
                     }
                 }
                 .toolbar{
-                    ToolbarItem(placement: .bottomBar){
-                        HStack{
-                            Button(action:{
-                                NFCR.read()
-                            }){
-                                Image(systemName:"sensor.tag.radiowaves.forward")
-                                    .font(.title)
-                                    .foregroundColor(.accentColor)
-                                Text("Scan")
-                                    .foregroundColor(.accentColor)
-                                
-                            }
-                            .fontWeight(.bold)
-                            .padding(2)
-                            .background(Color.primary)
-                            .clipShape(
-                                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            )
-                        }.padding(.bottom, 40)
+                    if NFCTagReaderSession.readingAvailable{
+                        ToolbarItem(placement: .bottomBar){
+                            HStack{
+                                Button(action:{
+                                    NFCR.read()
+                                }){
+                                    Image(systemName:"sensor.tag.radiowaves.forward")
+                                        .font(.title)
+                                        .foregroundColor(.accentColor)
+                                    Text("Scan")
+                                        .foregroundColor(.accentColor)
+                                    
+                                }
+                                .fontWeight(.bold)
+                                .padding(2)
+                                .background(Color.primary)
+                                .clipShape(
+                                    RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                                )
+                            }.padding(.bottom, 40)
+                        }
                     }
                 }
             }
             .searchable(text:$searchText)
-            Text(NFCR.hexID)
-            Text("\(NFCR.intID)")
-            Text(searchTagUID(NFCR.intID))
-            
+            if NFCTagReaderSession.readingAvailable{
+                Text(NFCR.hexID)
+                Text("\(NFCR.intID)")
+                Text(searchTagUID(NFCR.intID))
+            }
         }
     }
     

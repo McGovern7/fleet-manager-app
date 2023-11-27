@@ -12,7 +12,6 @@
 		420E6F5F2B04AA6200DA5646 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420E6F5E2B04AA6200DA5646 /* Assets.xcassets */; };
 		420E6F622B04AA6200DA5646 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420E6F612B04AA6200DA5646 /* Preview Assets.xcassets */; };
 		6004578D2B1166E500DE825E /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6004578C2B1166E500DE825E /* ScanView.swift */; };
-		60A888C62B1435C800C1F93A /* SwiftNFC in Frameworks */ = {isa = PBXBuildFile; productRef = 60A888C52B1435C800C1F93A /* SwiftNFC */; };
 		60A889002B144A7100C1F93A /* NFCInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A888FF2B144A7100C1F93A /* NFCInterface.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60A888C62B1435C800C1F93A /* SwiftNFC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +92,6 @@
 			);
 			name = "Fleet-Manager-SwiftUI";
 			packageProductDependencies = (
-				60A888C52B1435C800C1F93A /* SwiftNFC */,
 			);
 			productName = "Fleet-Manager-SwiftUI";
 			productReference = 420E6F572B04AA6100DA5646 /* Fleet-Manager-SwiftUI.app */;
@@ -125,7 +122,6 @@
 			);
 			mainGroup = 420E6F4E2B04AA6100DA5646;
 			packageReferences = (
-				60A888C42B1435C800C1F93A /* XCRemoteSwiftPackageReference "SwiftNFC" */,
 			);
 			productRefGroup = 420E6F582B04AA6100DA5646 /* Products */;
 			projectDirPath = "";
@@ -368,25 +364,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		60A888C42B1435C800C1F93A /* XCRemoteSwiftPackageReference "SwiftNFC" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/1998code/SwiftNFC";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		60A888C52B1435C800C1F93A /* SwiftNFC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 60A888C42B1435C800C1F93A /* XCRemoteSwiftPackageReference "SwiftNFC" */;
-			productName = SwiftNFC;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 420E6F4F2B04AA6100DA5646 /* Project object */;
 }
