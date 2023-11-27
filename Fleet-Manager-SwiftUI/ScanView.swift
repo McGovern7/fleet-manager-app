@@ -9,7 +9,7 @@ import SwiftUI
 
 // Only thing that differs is the tail num
 let json = """
-[{"tail_num":"N804BT","nfc_uid":268435455,"make":"Cessna","model":"172 Skyhawk","maintenance_log_id":1234},{"tail_num":"N805BT","nfc_uid":268435455,"make":"Cessna","model":"172 Skyhawk","maintenance_log_id":1234},{"tail_num":"N806BT","nfc_uid":268435455,"make":"Cessna","model":"182 Skyhawk","maintenance_log_id":1234}]
+[{"tail_num":"N804BT","nfc_uid":1192538920397441,"make":"Cessna","model":"172 Skyhawk","maintenance_log_id":1234},{"tail_num":"N805BT","nfc_uid":1238409120787073,"make":"Cessna","model":"172 Skyhawk","maintenance_log_id":1234},{"tail_num":"N806BT","nfc_uid":268435455,"make":"Cessna","model":"182 Skyhawk","maintenance_log_id":1234}]
 """.data(using:.utf8)!
 
 struct AircraftModel: Codable {
@@ -64,7 +64,9 @@ struct ScanView: View {
                 .toolbar{
                     ToolbarItem(placement: .bottomBar){
                         HStack{
-                            Button(action:{NFCR.read()}){
+                            Button(action:{
+                                NFCR.read()
+                            }){
                                 Image(systemName:"sensor.tag.radiowaves.forward")
                                     .font(.title)
                                     .foregroundColor(.accentColor)
@@ -85,6 +87,7 @@ struct ScanView: View {
             .searchable(text:$searchText)
             Text(NFCR.hexID)
             Text("\(NFCR.intID)")
+            Text(searchTagUID(NFCR.intID))
             
         }
     }
@@ -96,6 +99,17 @@ struct ScanView: View {
             return products.filter{
                 "\($0.tail_num) \($0.make) \($0.model)".contains(searchText)
             }
+        }
+    }
+    
+    func searchTagUID(_ uid: UInt64) -> String{
+        let filteredProductList = products.filter{
+            $0.nfc_uid == uid
+        }
+        if filteredProductList.count > 0{
+            return filteredProductList[0].tail_num
+        }else{
+            return ""
         }
     }
 }
