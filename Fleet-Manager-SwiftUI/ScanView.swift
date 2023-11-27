@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Only thing that differs is the tail num
 let json = """
 [{"tail_num":"N804BT","nfc_uid":268435455,"make":"Cessna","model":"172 Skyhawk","maintenance_log_id":1234},{"tail_num":"N805BT","nfc_uid":268435455,"make":"Cessna","model":"172 Skyhawk","maintenance_log_id":1234},{"tail_num":"N806BT","nfc_uid":268435455,"make":"Cessna","model":"182 Skyhawk","maintenance_log_id":1234}]
 """.data(using:.utf8)!
@@ -19,14 +20,11 @@ struct AircraftModel: Codable {
     var maintenance_log_id: Int
 }
 
+// Try to decode JSON data with the expectation that it conforms to a structure.
+// In this case, the structure is an array of AircraftModel structs, which the
+// example JSON string conforms to.
 let decoder = JSONDecoder()
 let products = try! decoder.decode([AircraftModel].self, from:json)
-
-func printJSONElements() {
-    for product in products{
-        print("\(product)")
-    }
-}
 
 struct ScanView: View {
     
@@ -64,7 +62,7 @@ struct ScanView: View {
                 .toolbar{
                     ToolbarItem(placement: .bottomBar){
                         HStack{
-                            Button(action:printJSONElements){
+                            Button(action:{/*Trigger NFC scan.*/}){
                                 Image(systemName:"sensor.tag.radiowaves.forward")
                                     .font(.title)
                                     .foregroundColor(.accentColor)
@@ -92,18 +90,13 @@ struct ScanView: View {
             return products
         }else{
             return products.filter{
-                $0.tail_num.contains(searchText)
-                || $0.model.contains(searchText)
-                || $0.make.contains(searchText)
+                "\($0.tail_num) \($0.make) \($0.model)".contains(searchText)
             }
         }
     }
 }
 
 #Preview {
-    VStack(){
-        ScanView()
-        Spacer()
-    }
-    .ignoresSafeArea()
+    ScanView()
+        .ignoresSafeArea()
 }
