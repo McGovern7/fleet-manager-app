@@ -11,6 +11,8 @@
 		420E6F5D2B04AA6100DA5646 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420E6F5C2B04AA6100DA5646 /* ContentView.swift */; };
 		420E6F5F2B04AA6200DA5646 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420E6F5E2B04AA6200DA5646 /* Assets.xcassets */; };
 		420E6F622B04AA6200DA5646 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420E6F612B04AA6200DA5646 /* Preview Assets.xcassets */; };
+		C1B1B6622B06D0680047469F /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B1B6612B06D0680047469F /* CustomTabBar.swift */; };
+		C1B2054D2B0EC5BB00A5216F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B2054C2B0EC5BB00A5216F /* ViewModel.swift */; };
 		6004578D2B1166E500DE825E /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6004578C2B1166E500DE825E /* ScanView.swift */; };
 		60A889002B144A7100C1F93A /* NFCInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A888FF2B144A7100C1F93A /* NFCInterface.swift */; };
 /* End PBXBuildFile section */
@@ -21,6 +23,8 @@
 		420E6F5C2B04AA6100DA5646 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		420E6F5E2B04AA6200DA5646 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		420E6F612B04AA6200DA5646 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C1B1B6612B06D0680047469F /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		C1B2054C2B0EC5BB00A5216F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		6004578C2B1166E500DE825E /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		60A888C12B14338F00C1F93A /* Fleet-Manager-SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fleet-Manager-SwiftUI.entitlements"; sourceTree = "<group>"; };
 		60A888FF2B144A7100C1F93A /* NFCInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCInterface.swift; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 				60A888C12B14338F00C1F93A /* Fleet-Manager-SwiftUI.entitlements */,
 				420E6F5A2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift */,
 				420E6F5C2B04AA6100DA5646 /* ContentView.swift */,
+				C1B1B6612B06D0680047469F /* CustomTabBar.swift */,
+				420E6F5A2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift */,
 				6004578C2B1166E500DE825E /* ScanView.swift */,
 				60A888FF2B144A7100C1F93A /* NFCInterface.swift */,
 				420E6F5E2B04AA6200DA5646 /* Assets.xcassets */,
@@ -70,6 +76,7 @@
 		420E6F602B04AA6200DA5646 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				C1B2054C2B0EC5BB00A5216F /* ViewModel.swift */,
 				420E6F612B04AA6200DA5646 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -150,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				420E6F5D2B04AA6100DA5646 /* ContentView.swift in Sources */,
+				C1B1B6622B06D0680047469F /* CustomTabBar.swift in Sources */,
+				C1B2054D2B0EC5BB00A5216F /* ViewModel.swift in Sources */,
 				420E6F5B2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift in Sources */,
 				6004578D2B1166E500DE825E /* ScanView.swift in Sources */,
 				60A889002B144A7100C1F93A /* NFCInterface.swift in Sources */,
