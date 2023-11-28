@@ -11,7 +11,7 @@ import SwiftUI
 struct Fleet_Manager_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().ignoresSafeArea()
         }
     }
 }
