@@ -11,6 +11,8 @@
 		420E6F5D2B04AA6100DA5646 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420E6F5C2B04AA6100DA5646 /* ContentView.swift */; };
 		420E6F5F2B04AA6200DA5646 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420E6F5E2B04AA6200DA5646 /* Assets.xcassets */; };
 		420E6F622B04AA6200DA5646 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420E6F612B04AA6200DA5646 /* Preview Assets.xcassets */; };
+		C1B1B6622B06D0680047469F /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B1B6612B06D0680047469F /* CustomTabBar.swift */; };
+		C1B2054D2B0EC5BB00A5216F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B2054C2B0EC5BB00A5216F /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		420E6F5C2B04AA6100DA5646 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		420E6F5E2B04AA6200DA5646 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		420E6F612B04AA6200DA5646 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C1B1B6612B06D0680047469F /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		C1B2054C2B0EC5BB00A5216F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,9 @@
 		420E6F592B04AA6100DA5646 /* Fleet-Manager-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				420E6F5A2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift */,
 				420E6F5C2B04AA6100DA5646 /* ContentView.swift */,
+				C1B1B6612B06D0680047469F /* CustomTabBar.swift */,
+				420E6F5A2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift */,
 				420E6F5E2B04AA6200DA5646 /* Assets.xcassets */,
 				420E6F602B04AA6200DA5646 /* Preview Content */,
 			);
@@ -62,6 +67,7 @@
 		420E6F602B04AA6200DA5646 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				C1B2054C2B0EC5BB00A5216F /* ViewModel.swift */,
 				420E6F612B04AA6200DA5646 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -138,6 +144,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				420E6F5D2B04AA6100DA5646 /* ContentView.swift in Sources */,
+				C1B1B6622B06D0680047469F /* CustomTabBar.swift in Sources */,
+				C1B2054D2B0EC5BB00A5216F /* ViewModel.swift in Sources */,
 				420E6F5B2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +280,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fleet-Manager-SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = GMAC2SY4S6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -300,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fleet-Manager-SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = GMAC2SY4S6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

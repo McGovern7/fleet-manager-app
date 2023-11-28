@@ -7,90 +7,58 @@
 
 import SwiftUI
 
-enum Screen {
-    case home, hangar, scan
-}
-
-struct ContentView: View {
-    @State var currScreen = Screen.home
+struct URLImage: View {
+    let urlString: String
+    
+    @State var data: Data?
+    
     var body: some View {
-        VStack {
-            switch currScreen {
-            case .home:
-                HomeView()
-            case .hangar:
-                HangarView()
-            case .scan:
-                ScanView()
-            }
-            Spacer()
-            NavTab(currScreen: $currScreen)
+        if let data = data, let uiimage = UIImage(data: data) {
+            Image(uiImage: uiimage)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 100, height: 70)
+                .background(Color.gray)
         }
-        .ignoresSafeArea()
+        else {
+            Image(systemName: "airplane")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 100, height: 70)
+                .background(Color.gray)
+                .onAppear() {
+                    fetchData()
+                }
+        }
+        Image("")
+    }
+    private func fetchData() {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+            self.data = data
+        }
+        task.resume()
     }
 }
 
-struct NavTab: View {
-    @Binding var currScreen: Screen
+struct ContentView: View {
+    @State private var selectedTab: Tab = .home
+    
     var body: some View {
-        HStack(spacing: 50) {
-            Button() {
-                currScreen = Screen.home
-            } label: {
-                Image(systemName: "house.circle")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor({
-                        if currScreen == Screen.home {
-                            .blue
-                        } else {
-                            .gray
-                        }
-                    }())
-            }
-            Button() {
-                currScreen = Screen.hangar
-            } label: {
-                Image(systemName: "airplane.circle")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor({
-                        if currScreen == Screen.hangar {
-                            .blue
-                        } else {
-                            .gray
-                        }
-                    }())            }
-            Button() {
-                currScreen = Screen.scan
-            } label: {
-                Image(systemName: "airtag")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor({
-                        if currScreen == Screen.scan {
-                            .blue
-                        } else {
-                            .gray
-                        }
-                    }())
-            }
+
+        switch selectedTab {
+        case .home:
+            HomeView()
+        case .hangar:
+            HangarView()
+        case .scan:
+            ScanView()
         }
-        .padding(.horizontal, 30)
-        .padding(.top, 20)
-        .padding(.bottom, 50)
-        .frame(
-              maxWidth: .infinity,
-              alignment: .center
-            )
-        .background(Color(red: 85/255, green: 214/255, blue: 175/255)
-            .ignoresSafeArea())
-        .clipShape(
-            .rect(
-                topLeadingRadius: 30,
-                topTrailingRadius: 30
-            )
-        )
+        Spacer()
+        CustomTabBar(selectedTab: $selectedTab)
     }
 }
 
@@ -112,10 +80,13 @@ struct HomeView: View {
                   bottomTrailingRadius: 30
               )
           )
+          .ignoresSafeArea()
     }
 }
 
 struct HangarView: View {
+    @StateObject var viewModel = ViewModel()
+    
     var body: some View {
         Text("My Hangar")
             .font(.largeTitle)
@@ -125,6 +96,22 @@ struct HangarView: View {
                 maxWidth: .infinity,
                 alignment: .center
               )
+        NavigationView {
+            List {
+                ForEach(viewModel.airplanes, id: \.self) { airplane in
+                    HStack {
+                        URLImage(urlString: String(airplane.maintenance_log_id))
+                        
+                        Text(airplane.tail_num)
+                        .padding(3)
+                    }
+                }
+            }
+            .navigationTitle("Airplanes")
+            .onAppear {
+                viewModel.fetch()
+            }
+        }
           .background(Color(red: 56/255, green: 223/255, blue: 223/255)
               .ignoresSafeArea())
           .clipShape(
@@ -133,6 +120,7 @@ struct HangarView: View {
                   bottomTrailingRadius: 30
               )
           )
+          .ignoresSafeArea()
     }
 }
 
@@ -154,11 +142,10 @@ struct ScanView: View {
                   bottomTrailingRadius: 30
               )
           )
+          .ignoresSafeArea()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView()
 }
