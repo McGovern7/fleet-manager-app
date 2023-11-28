@@ -100,7 +100,7 @@ struct HangarView: View {
             List {
                 ForEach(viewModel.airplanes, id: \.self) { airplane in
                     HStack {
-//                        URLImage(urlString: airplane.maintenance_log_id)
+                        URLImage(urlString: String(airplane.maintenance_log_id))
                         
                         Text(airplane.tail_num)
                         .padding(3)
