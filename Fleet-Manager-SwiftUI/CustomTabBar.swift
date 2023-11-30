@@ -11,7 +11,7 @@ import SwiftUI
 enum Tab: String, CaseIterable {
     case home = "house.circle"
     case hangar = "airplane.circle"
-    case scan = "airtag"
+    case scan = "magnifyingglass.circle"
     func iconName() -> String {
         switch self {
             case .home:
