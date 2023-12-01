@@ -48,7 +48,7 @@ struct ContentView: View {
     @State private var selectedTab: Tab = .home
     
     var body: some View {
-
+        
         switch selectedTab {
         case .home:
             HomeView()
@@ -63,47 +63,78 @@ struct ContentView: View {
 }
 
 struct HomeView: View {
+    let titleFont = Font.largeTitle.lowercaseSmallCaps()
+    
     var body: some View {
         Text("Home")
-            .font(.largeTitle)
+            .font(titleFont.monospaced())
             .padding(20)
             .padding(.top, 50)
             .frame(
                 maxWidth: .infinity,
                 alignment: .center
-              )
-          .background(Color(red: 56/255, green: 223/255, blue: 223/255)
-              .ignoresSafeArea())
-          .clipShape(
-              .rect(
-                  bottomLeadingRadius: 30,
-                  bottomTrailingRadius: 30
-              )
-          )
-          .ignoresSafeArea()
+            )
+            .background(Color(red: 56/255, green: 223/255, blue: 223/255)
+                .ignoresSafeArea())
+            .clipShape(
+                .rect(
+                    bottomLeadingRadius: 30,
+                    bottomTrailingRadius: 30
+                )
+            )
+            .ignoresSafeArea()
     }
 }
 
 struct HangarView: View {
     @StateObject var viewModel = ViewModel()
+    let titleFont = Font.largeTitle.lowercaseSmallCaps()
+    let bodyFont = Font.body.lowercaseSmallCaps()
+    
     
     var body: some View {
-        Text("My Hangar")
-            .font(.largeTitle)
+        Text("Hangar")
+            .font(titleFont.monospaced())
             .padding(20)
             .padding(.top, 50)
             .frame(
                 maxWidth: .infinity,
                 alignment: .center
-              )
+            )
+            .background(Color(red: 56/255, green: 223/255, blue: 223/255)
+                .ignoresSafeArea())
+            .clipShape(
+                .rect(
+                    bottomLeadingRadius: 30,
+                    bottomTrailingRadius: 30
+                )
+            )
+            .ignoresSafeArea()
         NavigationView {
             List {
                 ForEach(viewModel.airplanes, id: \.self) { airplane in
-                    HStack {
-                        URLImage(urlString: String(airplane.maintenance_log_id))
-                        
+                    NavigationLink(destination:
+                        VStack(alignment: .leading) {
+                            Text("Tail Number: \(airplane.tail_num)")
+                                .font(bodyFont)
+                                .ignoresSafeArea()
+                            Text("NFC Chip UID: \(String(airplane.nfc_uid))")
+                                .font(bodyFont)
+                                .ignoresSafeArea()
+                            Text("Make: \(airplane.make)")
+                                .font(bodyFont)
+                                .ignoresSafeArea()
+                            Text("Model: \(airplane.model)")
+                                .font(bodyFont)
+                                .ignoresSafeArea()
+                            Text("Maintenance Log ID: \(airplane.maintenance_log_id)")
+                                .font(bodyFont)
+                                .ignoresSafeArea()
+                        }
+                    )  {
+                        URLImage(urlString: String(airplane.make))
                         Text(airplane.tail_num)
-                        .padding(3)
+                            .padding(3)
                     }
                 }
             }
@@ -112,15 +143,6 @@ struct HangarView: View {
                 viewModel.fetch()
             }
         }
-          .background(Color(red: 56/255, green: 223/255, blue: 223/255)
-              .ignoresSafeArea())
-          .clipShape(
-              .rect(
-                  bottomLeadingRadius: 30,
-                  bottomTrailingRadius: 30
-              )
-          )
-          .ignoresSafeArea()
     }
 }
 

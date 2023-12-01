@@ -33,10 +33,12 @@ struct ScanView: View {
     
     @State private var searchText = ""
     
+    let titleFont = Font.largeTitle.lowercaseSmallCaps()
+    
     var body: some View {
         VStack(){
             Text("Aircraft Search")
-                .font(.largeTitle)
+                .font(titleFont)
                 .padding(20)
                 .padding(.top, 50)
                 .frame(
