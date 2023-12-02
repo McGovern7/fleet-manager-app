@@ -93,54 +93,94 @@ struct HangarView: View {
     
     
     var body: some View {
-        Text("Hangar")
-            .font(titleFont.monospaced())
-            .padding(20)
-            .padding(.top, 50)
-            .frame(
-                maxWidth: .infinity,
-                alignment: .center
-            )
-            .background(Color(red: 56/255, green: 223/255, blue: 223/255)
-                .ignoresSafeArea())
-            .clipShape(
-                .rect(
-                    bottomLeadingRadius: 30,
-                    bottomTrailingRadius: 30
+        VStack {
+            Text("Hangar")
+                .font(titleFont.monospaced())
+                .padding(20)
+                .padding(.top, 50)
+                .frame(
+                    maxWidth: .infinity,
+                    alignment: .center
                 )
-            )
-            .ignoresSafeArea()
-        NavigationView {
-            List {
-                ForEach(viewModel.airplanes, id: \.self) { airplane in
-                    NavigationLink(destination:
-                        VStack(alignment: .leading) {
-                            Text("Tail Number: \(airplane.tail_num)")
-                                .font(bodyFont)
-                                .ignoresSafeArea()
-                            Text("NFC Chip UID: \(String(airplane.nfc_uid))")
-                                .font(bodyFont)
-                                .ignoresSafeArea()
-                            Text("Make: \(airplane.make)")
-                                .font(bodyFont)
-                                .ignoresSafeArea()
-                            Text("Model: \(airplane.model)")
-                                .font(bodyFont)
-                                .ignoresSafeArea()
-                            Text("Maintenance Log ID: \(airplane.maintenance_log_id)")
-                                .font(bodyFont)
-                                .ignoresSafeArea()
+                .background(Color(red: 56/255, green: 223/255, blue: 223/255)
+                    .ignoresSafeArea())
+                .clipShape(
+                    .rect(
+                        bottomLeadingRadius: 30,
+                        bottomTrailingRadius: 30
+                    )
+                )
+                .ignoresSafeArea()
+            NavigationView {
+                List {
+                    ForEach(viewModel.airplanes, id: \.self) { airplane in
+                        NavigationLink(destination:
+                                        VStack(alignment: .leading) {
+                            HStack {
+                                Text("\tTail Number")
+                                    .font(bodyFont)
+                                Spacer()
+                                Text("\(airplane.tail_num)\t")
+                                    .font(bodyFont)
+                            }
+                            Spacer()
+                            HStack {
+                                Text("\tNFC Chip UID")
+                                    .font(bodyFont)
+                                Spacer()
+                                Text("\(String(airplane.nfc_uid))\t")
+                                    .font(bodyFont)
+                            }
+                            Spacer()
+                            HStack {
+                                Text("\tMake")
+                                    .font(bodyFont)
+                                Spacer()
+                                Text("\(String(airplane.make))\t")
+                                    .font(bodyFont)
+                            }
+                            Spacer()
+                            HStack {
+                                Text("\tModel")
+                                    .font(bodyFont)
+                                Spacer()
+                                Text("\(String(airplane.model))\t")
+                                    .font(bodyFont)
+                            }
+                            Spacer()
+                            HStack {
+                                Text("\tMaintenance Log ID")
+                                    .font(bodyFont)
+                                Spacer()
+                                Text("\(String(airplane.maintenance_log_id))\t")
+                                    .font(bodyFont)
+                            }
+                            Spacer()
                         }
-                    )  {
-                        URLImage(urlString: String(airplane.make))
-                        Text(airplane.tail_num)
-                            .padding(3)
+                        )  {
+                            URLImage(urlString: String(airplane.make))
+                            Text(airplane.tail_num)
+                                .padding(3)
+                        }
                     }
                 }
-            }
-            .navigationTitle("Airplanes")
-            .onAppear {
-                viewModel.fetch()
+                .navigationTitle("Airplanes")
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {                            
+                            Button {
+                                
+                            } label: {
+                                Image(systemName: "plus.app")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 40, height: 40)
+                                    .padding()
+                            }
+                        }
+                    }
+                .onAppear {
+                    viewModel.fetch()
+                }
             }
         }
     }
