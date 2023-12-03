@@ -10,33 +10,33 @@ protocol APIModel: Decodable{
 }
 
 struct AircraftModel: Codable, APIModel {
+    var group_id: Int
     var tail_num: String
     var nfc_uid: Int64
     var make: String
     var model: String
-    var maintenance_log_id: Int
+    var image: String
     var maintenance_log: [MaintenanceLogEntry]
-    var group_id: Int
 }
 
 struct MaintenanceLogEntry: Codable, APIModel {
+    var group_id: Int
     var log_entry_id: Int
     var aircraft_tail_num: String
     var maintenance_task_id: Int
-    var maintenance_task: [MaintenanceTask]
+    var maintenance_task: MaintenanceTask
     var required_completion_date: String
     var status: String
     var completion_date: String
-    var group_id: Int
 }
 
 struct MaintenanceTask: Codable, APIModel {
+    var group_id: Int
     var task_id: Int
     var title: String
     var description: String
     var recurring: Bool
     var recurrence_interval_days: Int
-    var group_id: Int
 }
 
 struct UserGroup: Codable, APIModel {

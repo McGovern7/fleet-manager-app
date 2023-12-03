@@ -7,7 +7,7 @@
 
 import Foundation
 
-class APIObjectInterface<T: APIModel>{
+class APIObjectRetreiver<T: APIModel>{
     var groupId: Int
     var objectUrl: String
     var baseUrlComponents = URLComponents()
@@ -25,13 +25,15 @@ class APIObjectInterface<T: APIModel>{
     }
     
     func getCollection() -> [T]{
-        var components = self.baseUrlComponents
+        var components = baseUrlComponents
         components.path = "\(components.path)/list"
         
         var request = URLRequest(url: components.url!)
         request.httpMethod = "GET"
         
         var returnVal: [T] = []
+        
+        let semaphore = DispatchSemaphore(value: 0)
         
         URLSession.shared.dataTask(with: request){(data, response, error) in
             if let error = error{
@@ -41,19 +43,24 @@ class APIObjectInterface<T: APIModel>{
                     returnVal = try! JSONDecoder().decode([T].self, from:data)
                 }
             }
-        }
+            semaphore.signal()
+        }.resume()
+        
+        semaphore.wait()
         
         return returnVal
     }
     
     func getObject(key: String) -> T?{
-        var components = self.baseUrlComponents
-        components.path = "\(components.path)/\(key)"
+        var components = baseUrlComponents
+        components.path = "\(components.path)/list"
         
         var request = URLRequest(url: components.url!)
         request.httpMethod = "GET"
         
         var returnVal: T? = nil
+        
+        let semaphore = DispatchSemaphore(value: 0)
         
         URLSession.shared.dataTask(with: request){(data, response, error) in
             if let error = error{
@@ -63,18 +70,11 @@ class APIObjectInterface<T: APIModel>{
                     returnVal = try! JSONDecoder().decode(T.self, from:data)
                 }
             }
-        }
+            semaphore.signal()
+        }.resume()
+        
+        semaphore.wait()
         
         return returnVal
-    }
-    
-    func updateObject(key: String, newObj: T){
-        var components = self.baseUrlComponents
-        components.path = "\(components.path)/\(key)"
-    }
-    
-    func creatObject(newObj: T){
-        var components = self.baseUrlComponents
-        components.path = "\(components.path)/"
     }
 }
