@@ -8,22 +8,18 @@
 import SwiftUI
 import CoreNFC
 
-// Only thing that differs is the tail num
-let json = """
-[{"tail_num":"N804BT","nfc_uid":1192538920397441,"make":"Cessna","model":"172 Skyhawk","maintenance_log_id":1234},{"tail_num":"N805BT","nfc_uid":1238409120787073,"make":"Cessna","model":"172 Skyhawk","maintenance_log_id":1234},{"tail_num":"N806BT","nfc_uid":268435455,"make":"Cessna","model":"182 Skyhawk","maintenance_log_id":1234}]
-""".data(using:.utf8)!
-
 // Try to decode JSON data with the expectation that it conforms to a structure.
 // In this case, the structure is an array of AircraftModel structs, which the
 // example JSON string conforms to.
 let decoder = JSONDecoder()
-let products = try! decoder.decode([AircraftModel].self, from:json)
 
 struct ScanView: View {
     
     @ObservedObject var NFCR = MiFareReader()
     
     @State private var searchText = ""
+    
+    let products = AircraftGetter.getCollection()
     
     let titleFont = Font.largeTitle.lowercaseSmallCaps()
     
@@ -90,7 +86,7 @@ struct ScanView: View {
         }
     }
     
-    var filteredAircraft: [AircraftModel]{
+    var filteredAircraft: [Aircraft]{
         if searchText.isEmpty {
             return products
         }else{

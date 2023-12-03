@@ -9,7 +9,7 @@ protocol APIModel: Decodable{
     
 }
 
-struct AircraftModel: Codable, APIModel {
+struct Aircraft: Codable, APIModel {
     var group_id: Int
     var tail_num: String
     var nfc_uid: Int64

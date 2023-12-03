@@ -78,3 +78,7 @@ class APIObjectRetreiver<T: APIModel>{
         return returnVal
     }
 }
+
+let AircraftGetter = APIObjectRetreiver<Aircraft>(objectUrl: "/aircraft", groupId: 1)
+let MaintenanceLogEntryGetter = APIObjectRetreiver<MaintenanceLogEntry>(objectUrl: "/maintenance-log-entry", groupId: 1)
+let MaintenanceTaskGetter = APIObjectRetreiver<MaintenanceTask>(objectUrl: "/maintenance-task", groupId: 1)
