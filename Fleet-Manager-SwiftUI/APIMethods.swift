@@ -46,9 +46,26 @@ class APIObjectInterface<T: APIModel>{
         return returnVal
     }
     
-    func getObject(key: String) -> T{
+    func getObject(key: String) -> T?{
         var components = self.baseUrlComponents
         components.path = "\(components.path)/\(key)"
+        
+        var request = URLRequest(url: components.url!)
+        request.httpMethod = "GET"
+        
+        var returnVal: T? = nil
+        
+        URLSession.shared.dataTask(with: request){(data, response, error) in
+            if let error = error{
+                print("There was an error fetching the resource: \(error.localizedDescription)")
+            }else if let data = data, let response = response as? HTTPURLResponse{
+                if response.statusCode == 200{
+                    returnVal = try! JSONDecoder().decode(T.self, from:data)
+                }
+            }
+        }
+        
+        return returnVal
     }
     
     func updateObject(key: String, newObj: T){
