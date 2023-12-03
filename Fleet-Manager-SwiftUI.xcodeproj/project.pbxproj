@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420527072B1C664C0059BFF1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420527062B1C664C0059BFF1 /* HomeView.swift */; };
+		420527092B1C66D50059BFF1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420527082B1C66D50059BFF1 /* LoginView.swift */; };
+		4205270B2B1C68D10059BFF1 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205270A2B1C68D10059BFF1 /* InputFieldView.swift */; };
+		4205270D2B1C6F3E0059BFF1 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205270C2B1C6F3E0059BFF1 /* AccountView.swift */; };
+		4205270F2B1C70A30059BFF1 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4205270E2B1C70A30059BFF1 /* RegisterView.swift */; };
 		420E6F5B2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420E6F5A2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift */; };
 		420E6F5D2B04AA6100DA5646 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420E6F5C2B04AA6100DA5646 /* ContentView.swift */; };
 		420E6F5F2B04AA6200DA5646 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 420E6F5E2B04AA6200DA5646 /* Assets.xcassets */; };
@@ -18,6 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		420527062B1C664C0059BFF1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		420527082B1C66D50059BFF1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		4205270A2B1C68D10059BFF1 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
+		4205270C2B1C6F3E0059BFF1 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		4205270E2B1C70A30059BFF1 /* RegisterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		420E6F572B04AA6100DA5646 /* Fleet-Manager-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fleet-Manager-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		420E6F5A2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fleet_Manager_SwiftUIApp.swift; sourceTree = "<group>"; };
 		420E6F5C2B04AA6100DA5646 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +51,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		420527052B1C659C0059BFF1 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				420527082B1C66D50059BFF1 /* LoginView.swift */,
+				4205270E2B1C70A30059BFF1 /* RegisterView.swift */,
+				4205270A2B1C68D10059BFF1 /* InputFieldView.swift */,
+				4205270C2B1C6F3E0059BFF1 /* AccountView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		420E6F4E2B04AA6100DA5646 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +81,7 @@
 		420E6F592B04AA6100DA5646 /* Fleet-Manager-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				420527052B1C659C0059BFF1 /* Account */,
 				60A888C12B14338F00C1F93A /* Fleet-Manager-SwiftUI.entitlements */,
 				420E6F5C2B04AA6100DA5646 /* ContentView.swift */,
 				C1B1B6612B06D0680047469F /* CustomTabBar.swift */,
@@ -68,6 +90,7 @@
 				60A888FF2B144A7100C1F93A /* NFCInterface.swift */,
 				420E6F5E2B04AA6200DA5646 /* Assets.xcassets */,
 				420E6F602B04AA6200DA5646 /* Preview Content */,
+				420527062B1C664C0059BFF1 /* HomeView.swift */,
 			);
 			path = "Fleet-Manager-SwiftUI";
 			sourceTree = "<group>";
@@ -155,12 +178,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4205270F2B1C70A30059BFF1 /* RegisterView.swift in Sources */,
 				420E6F5D2B04AA6100DA5646 /* ContentView.swift in Sources */,
+				420527072B1C664C0059BFF1 /* HomeView.swift in Sources */,
 				C1B1B6622B06D0680047469F /* CustomTabBar.swift in Sources */,
 				C1B2054D2B0EC5BB00A5216F /* ViewModel.swift in Sources */,
+				4205270D2B1C6F3E0059BFF1 /* AccountView.swift in Sources */,
 				420E6F5B2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift in Sources */,
 				6004578D2B1166E500DE825E /* ScanView.swift in Sources */,
+				420527092B1C66D50059BFF1 /* LoginView.swift in Sources */,
 				60A889002B144A7100C1F93A /* NFCInterface.swift in Sources */,
+				4205270B2B1C68D10059BFF1 /* InputFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

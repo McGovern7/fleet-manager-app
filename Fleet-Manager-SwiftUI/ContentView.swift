@@ -62,30 +62,6 @@ struct ContentView: View {
     }
 }
 
-struct HomeView: View {
-    let titleFont = Font.largeTitle.lowercaseSmallCaps()
-    
-    var body: some View {
-        Text("Home")
-            .font(titleFont.monospaced())
-            .padding(20)
-            .padding(.top, 50)
-            .frame(
-                maxWidth: .infinity,
-                alignment: .center
-            )
-            .background(Color(red: 56/255, green: 223/255, blue: 223/255)
-                .ignoresSafeArea())
-            .clipShape(
-                .rect(
-                    bottomLeadingRadius: 30,
-                    bottomTrailingRadius: 30
-                )
-            )
-            .ignoresSafeArea()
-    }
-}
-
 struct HangarView: View {
     @StateObject var viewModel = ViewModel()
     let titleFont = Font.largeTitle.lowercaseSmallCaps()
