@@ -28,6 +28,7 @@
 		6004578C2B1166E500DE825E /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		6077BF372B1CD5E80096A337 /* APIMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMethods.swift; sourceTree = "<group>"; };
 		6077BF392B1CD6530096A337 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
+		6077BF3B2B1CDC590096A337 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		60A888C12B14338F00C1F93A /* Fleet-Manager-SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Fleet-Manager-SwiftUI.entitlements"; sourceTree = "<group>"; };
 		60A888FF2B144A7100C1F93A /* NFCInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCInterface.swift; sourceTree = "<group>"; };
 		C1B1B6612B06D0680047469F /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 				60A888C12B14338F00C1F93A /* Fleet-Manager-SwiftUI.entitlements */,
 				420E6F5C2B04AA6100DA5646 /* ContentView.swift */,
 				6077BF372B1CD5E80096A337 /* APIMethods.swift */,
+				6077BF3B2B1CDC590096A337 /* MyPlayground.playground */,
 				6077BF392B1CD6530096A337 /* APIModels.swift */,
 				C1B1B6612B06D0680047469F /* CustomTabBar.swift */,
 				420E6F5A2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift */,

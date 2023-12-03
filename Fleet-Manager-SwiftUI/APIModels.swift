@@ -5,7 +5,11 @@
 //  Created by Eli Smith on 12/3/23.
 //
 
-struct AircraftModel: Codable {
+protocol APIModel: Decodable{
+    
+}
+
+struct AircraftModel: Codable, APIModel {
     var tail_num: String
     var nfc_uid: Int64
     var make: String
@@ -15,7 +19,7 @@ struct AircraftModel: Codable {
     var group_id: Int
 }
 
-struct MaintenanceLogEntry: Codable {
+struct MaintenanceLogEntry: Codable, APIModel {
     var log_entry_id: Int
     var aircraft_tail_num: String
     var maintenance_task_id: Int
@@ -26,7 +30,7 @@ struct MaintenanceLogEntry: Codable {
     var group_id: Int
 }
 
-struct MaintenanceTask: Codable {
+struct MaintenanceTask: Codable, APIModel {
     var task_id: Int
     var title: String
     var description: String
@@ -35,12 +39,12 @@ struct MaintenanceTask: Codable {
     var group_id: Int
 }
 
-struct UserGroup: Codable {
+struct UserGroup: Codable, APIModel {
     var group_id: Int
     var name: String
 }
 
-struct User: Codable {
+struct User: Codable, APIModel {
     var name: String
     var password: String
     var group_id: Int
