@@ -14,46 +14,48 @@ struct AircraftInspector: View {
     var body: some View {
         VStack(alignment: .leading) { //
             // very messy should be in a loop
-            HStack {
-                Text("\tGroup ID")
-                    .font(bodyFont)
+            List {
+                HStack {
+                    Text("Group ID")
+                        .font(bodyFont)
+                    Spacer()
+                    Text("\(String(airplane.group_id))")
+                        .font(bodyFont)
+                }
                 Spacer()
-                Text("\(String(airplane.group_id)) \t")
-                    .font(bodyFont)
-            }
-            Spacer()
-            HStack {
-                Text("\tTail Number")
-                    .font(bodyFont)
+                HStack {
+                    Text("Tail Number")
+                        .font(bodyFont)
+                    Spacer()
+                    Text("\(airplane.tail_num)")
+                        .font(bodyFont)
+                }
                 Spacer()
-                Text("\(airplane.tail_num) \t")
-                    .font(bodyFont)
-            }
-            Spacer()
-            HStack {
-                Text("\tNFC Chip UID")
-                    .font(bodyFont)
+                HStack {
+                    Text("NFC Chip UID")
+                        .font(bodyFont)
+                    Spacer()
+                    Text("\(String(airplane.nfc_uid))")
+                        .font(bodyFont)
+                }
                 Spacer()
-                Text("\(String(airplane.nfc_uid)) \t")
-                    .font(bodyFont)
-            }
-            Spacer()
-            HStack {
-                Text("\tMake")
-                    .font(bodyFont)
+                HStack {
+                    Text("Make")
+                        .font(bodyFont)
+                    Spacer()
+                    Text("\(airplane.make)")
+                        .font(bodyFont)
+                }
                 Spacer()
-                Text("\(airplane.make) \t")
-                    .font(bodyFont)
-            }
-            Spacer()
-            HStack {
-                Text("\tModel")
-                    .font(bodyFont)
+                HStack {
+                    Text("Model")
+                        .font(bodyFont)
+                    Spacer()
+                    Text("\(airplane.model)")
+                        .font(bodyFont)
+                }
                 Spacer()
-                Text("\(airplane.model) \t")
-                    .font(bodyFont)
             }
-            Spacer()
         }
     }
 }

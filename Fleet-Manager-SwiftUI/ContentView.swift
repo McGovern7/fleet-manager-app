@@ -189,12 +189,11 @@ struct PostView: View {
                                     .foregroundColor(.accentColor)
                             }
                         }
-                        
                     }
                     TextField("Make of Aircraft", text: $make)
                     TextField("Model of Aircraft", text: $model)
                     Button("Save") {
-                        image = model
+                        image = model.uppercased()
                         int_group_id = Int(group_id) ?? 0
                         int_nfc_uid = NFCR.intID
                         var post_request: [String : AnyHashable] = createPostRequest(grp_id: int_group_id, tail_num: tail_num, nfc_uid: Int(int_nfc_uid), make: make, model: model, img: image)
