@@ -18,6 +18,7 @@ struct ScanView: View {
     @ObservedObject var NFCR = MiFareReader()
     
     @State private var searchText = ""
+    @State private var navPath: [Aircraft] = []
     
     let products = AircraftGetter.getCollection()
     
@@ -41,15 +42,25 @@ struct ScanView: View {
                       bottomTrailingRadius: 30
                   )
               )
-            NavigationStack(){
+            NavigationStack(path: $navPath){
                 List{
                     ForEach(filteredAircraft, id: \.self.tail_num){ item in
-                        VStack(alignment: .leading){
-                            Text("\(item.tail_num)")
-                                .font(.headline)
-                            Text("\(item.make) \(item.model)")
-                                .font(.subheadline)
+                        NavigationLink(value: item){
+                            VStack(alignment: .leading){
+                                Text("\(item.tail_num)")
+                                    .font(.headline)
+                                Text("\(item.make) \(item.model)")
+                                    .font(.subheadline)
+                            }
                         }
+                    }
+                }
+                .navigationDestination(for: Aircraft.self) { aircraft in
+                    AircraftInspector(airplane: aircraft)
+                }
+                .onChange(of: NFCR.intID){ intID in
+                    if let aircraft = searchTagUID(intID){
+                        navPath.append(aircraft)
                     }
                 }
                 .toolbar{
@@ -78,11 +89,6 @@ struct ScanView: View {
                 }
             }
             .searchable(text:$searchText)
-            if NFCTagReaderSession.readingAvailable{
-                Text(NFCR.hexID)
-                Text("\(NFCR.intID)")
-                Text(searchTagUID(NFCR.intID))
-            }
         }
     }
     
@@ -96,14 +102,14 @@ struct ScanView: View {
         }
     }
     
-    func searchTagUID(_ uid: UInt64) -> String{
+    func searchTagUID(_ uid: UInt64) -> Aircraft?{
         let filteredProductList = products.filter{
             $0.nfc_uid == uid
         }
         if filteredProductList.count > 0{
-            return filteredProductList[0].tail_num
+            return filteredProductList[0]
         }else{
-            return ""
+            return nil
         }
     }
 }
