@@ -13,15 +13,22 @@ enum AcctView {
 
 struct AccountView: View {
     let bodyFont = Font.body.lowercaseSmallCaps()
+    
+    @StateObject var viewModel = ViewModel()
 
     @State var loginView: Bool = true
+    @State var username: String = ""
+    @State var password: String = ""
+    @State var passRepeat: String = ""
+    @State var groupID: String = ""
+    @State var intGroupID: Int = 0
     
     var body: some View {
         VStack {
             if loginView {
-                LoginView()
+                LoginView(username: $username, password: $password)
             } else {
-                RegisterView()
+                RegisterView(username: $username, password: $password, repPassword: $passRepeat, groupID: $groupID)
             }
             VStack {
                 Button(action: {/* SQL Post here */}) {
@@ -36,6 +43,11 @@ struct AccountView: View {
                 }
                 Button(action: {
                     loginView.toggle()
+                    if !loginView {
+                        intGroupID = Int(groupID) ?? 0
+                        var post_request: [String : AnyHashable] = acctPostRequest(username: username, password: password, groupID: intGroupID)
+                        viewModel.userPOSTRequest(postRequest: post_request)
+                    }
                 }) {
                     Text(loginView ? "Register" : "Login")
                         .font(bodyFont)
@@ -49,6 +61,15 @@ struct AccountView: View {
             }.padding([.leading, .trailing])
         }
     }
+}
+
+func acctPostRequest(username: String, password: String, groupID: Int) -> Dictionary<String, AnyHashable> {
+    var postRequest: [String : AnyHashable] = [:]
+    postRequest["username"] = username
+    postRequest["password"] = password
+    postRequest["group_id"] = groupID
+    
+    return postRequest
 }
 
 #Preview {

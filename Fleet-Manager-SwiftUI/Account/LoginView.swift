@@ -11,8 +11,8 @@ struct LoginView: View {
     let titleFont = Font.largeTitle.lowercaseSmallCaps()
     let bodyFont = Font.body.lowercaseSmallCaps()
     
-    @State var username: String = ""
-    @State var password: String = ""
+    @Binding var username: String
+    @Binding var password: String
     
     var body: some View {
         VStack {
@@ -21,8 +21,8 @@ struct LoginView: View {
                 .fontWeight(.bold)
                 .padding(.bottom, 42)
             VStack {
-                InputFieldView(data: $username, title: "Username")
-                InputFieldView(data: $password, title: "Password")
+                InputFieldView(data: $username, title: "Username", isSecure: false)
+                InputFieldView(data: $password, title: "Password", isSecure: true)
             }.padding(.bottom, 16)
             HStack {
                 Spacer()
@@ -39,7 +39,10 @@ struct LoginView: View {
 }
 
 struct LoginView_Previews: PreviewProvider {
+    @State static var username: String = ""
+    @State static var password: String = ""
+    
     static var previews: some View {
-        LoginView()
+        LoginView(username: $username, password: $password)
     }
 }

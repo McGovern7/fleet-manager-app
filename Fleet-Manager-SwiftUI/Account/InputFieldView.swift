@@ -12,16 +12,29 @@ struct InputFieldView: View {
     
     @Binding var data: String
     var title: String?
-    
+    var isSecure: Bool
+
     var body: some View {
         ZStack {
-            TextField("", text: $data)
-                .padding(.horizontal, 10)
-                .frame(height: 42)
-                .overlay(
-                    RoundedRectangle(cornerSize: CGSize(width: 4, height: 4))
-                        .stroke(.gray, lineWidth: 1)
-                )
+            if isSecure {
+                SecureField("", text: $data)
+                    .padding(.horizontal, 10)
+                    .frame(height: 42)
+                    .overlay(
+                        RoundedRectangle(cornerSize: CGSize(width: 4, height: 4))
+                            .stroke(.gray, lineWidth: 1)
+                    )
+                    .autocapitalization(.none)
+            } else {
+                TextField("", text: $data)
+                    .padding(.horizontal, 10)
+                    .frame(height: 42)
+                    .overlay(
+                        RoundedRectangle(cornerSize: CGSize(width: 4, height: 4))
+                            .stroke(.gray, lineWidth: 1)
+                    )
+                    .autocapitalization(.none)
+            }
             HStack {
                 Text(title ?? "Input")
                     .font(bodyFont)
@@ -42,6 +55,6 @@ struct InputFieldView_Previews: PreviewProvider {
     @State static var data: String = ""
     
     static var previews: some View {
-        InputFieldView(data: $data, title: "Password")
+        InputFieldView(data: $data, title: "Password", isSecure: true)
     }
 }

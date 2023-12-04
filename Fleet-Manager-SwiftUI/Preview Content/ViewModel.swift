@@ -22,7 +22,39 @@ class ViewModel: ObservableObject {
             return
         }
         
-        print("making api call...")
+        print("making api call to log table...")
+        
+        var request = URLRequest(url: url)
+        
+        //  method, body, headers
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        // Dictionary<String, AnyHashable>
+        let body = postRequest // set body to dict from makePostRequest
+        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        // make the request
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            do {
+                let response = try JSONDecoder().decode(Aircraft.self, from: data)
+                print("Success: \(response)")
+            }
+            catch {
+                print(error)
+            }
+        }
+        task.resume()
+    }
+    
+    func userPOSTRequest(postRequest: Dictionary<String, AnyHashable>) { // takes the dictionary from makePostRequest
+        guard let url = URL(string: "https://esmith87.w3.uvm.edu/user/") else {
+            return
+        }
+        
+        print("making api call to user table...")
         
         var request = URLRequest(url: url)
         
