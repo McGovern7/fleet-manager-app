@@ -5,7 +5,7 @@
 //  Created by Eli Smith on 12/3/23.
 //
 
-protocol APIModel: Decodable{
+protocol APIModel: Hashable, Decodable{
     
 }
 
@@ -49,3 +49,7 @@ struct User: Codable, APIModel {
     var password: String
     var group_id: Int
 }
+
+//struct PostRequestModel: Codable, ApiModel {
+//    
+//}

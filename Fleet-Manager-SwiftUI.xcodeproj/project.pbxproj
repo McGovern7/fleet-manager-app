@@ -17,6 +17,7 @@
 		60A889002B144A7100C1F93A /* NFCInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A888FF2B144A7100C1F93A /* NFCInterface.swift */; };
 		C1B1B6622B06D0680047469F /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B1B6612B06D0680047469F /* CustomTabBar.swift */; };
 		C1B2054D2B0EC5BB00A5216F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B2054C2B0EC5BB00A5216F /* ViewModel.swift */; };
+		C1E386752B1D42ED0039207D /* AircraftInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E386742B1D42ED0039207D /* AircraftInspector.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		60A888FF2B144A7100C1F93A /* NFCInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCInterface.swift; sourceTree = "<group>"; };
 		C1B1B6612B06D0680047469F /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		C1B2054C2B0EC5BB00A5216F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		C1E386742B1D42ED0039207D /* AircraftInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftInspector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				60A888FF2B144A7100C1F93A /* NFCInterface.swift */,
 				420E6F5E2B04AA6200DA5646 /* Assets.xcassets */,
 				420E6F602B04AA6200DA5646 /* Preview Content */,
+				C1E386742B1D42ED0039207D /* AircraftInspector.swift */,
 			);
 			path = "Fleet-Manager-SwiftUI";
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			files = (
 				6077BF3A2B1CD6530096A337 /* APIModels.swift in Sources */,
 				420E6F5D2B04AA6100DA5646 /* ContentView.swift in Sources */,
+				C1E386752B1D42ED0039207D /* AircraftInspector.swift in Sources */,
 				C1B1B6622B06D0680047469F /* CustomTabBar.swift in Sources */,
 				C1B2054D2B0EC5BB00A5216F /* ViewModel.swift in Sources */,
 				420E6F5B2B04AA6100DA5646 /* Fleet_Manager_SwiftUIApp.swift in Sources */,

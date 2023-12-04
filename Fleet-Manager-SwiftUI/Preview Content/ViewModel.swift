@@ -8,46 +8,17 @@
 import Foundation
 import SwiftUI
 
-struct Airplane: Hashable, Codable {
-    let group_id: Int
-    let tail_num: String
-    let nfc_uid: Int
-    let make: String
-    let model: String
-    let image: String
-}
+
 
 class ViewModel: ObservableObject {
-    @Published var airplanes: [Airplane] = []
+    var airplanes: [Aircraft] = AircraftGetter.getCollection()
     // gets airplane info from url
     func fetch() {
-        guard let url = URL(string: "https://esmith87.w3.uvm.edu/aircraft/list") else {
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _,
-            error in
-            guard let data = data, error == nil else {
-                return
-            }
-            
-            // convert to JSON
-            do {
-                let airplanes = try JSONDecoder().decode([Airplane].self, from: data)
-                DispatchQueue.main.async {
-                    self?.airplanes = airplanes
-                }
-            }
-            catch {
-                print(error)
-            }
-        }
-        
-        task.resume()
+        self.airplanes = AircraftGetter.getCollection()
     }
     // handles "POST" api calls, called in HangarView
-    func makePOSTRequest() {
-        guard let url = URL(string: "https://esmith87.w3.uvm.edu/aircraft/list") else {
+    func makePOSTRequest(postRequest: Dictionary<String, AnyHashable>) { // takes the dictionary from makePostRequest
+        guard let url = URL(string: "https://esmith87.w3.uvm.edu/aircraft/") else {
             return
         }
         
@@ -58,13 +29,9 @@ class ViewModel: ObservableObject {
         //  method, body, headers
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        let body: [String: AnyHashable] = [
-            "group_id": 1,
-            "tail_num": "tail Number",
-            "nfc_uid": 50,
-            "make": "Boeing",
-            "model": "777",
-            ]
+        // Dictionary<String, AnyHashable>
+        let body = postRequest // set body to dict from makePostRequest
+        
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         // make the request
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
@@ -72,7 +39,7 @@ class ViewModel: ObservableObject {
                 return
             }
             do {
-                let response = try JSONDecoder().decode(Airplane.self, from: data)
+                let response = try JSONDecoder().decode(Aircraft.self, from: data)
                 print("Success: \(response)")
             }
             catch {
@@ -80,14 +47,6 @@ class ViewModel: ObservableObject {
             }
         }
         task.resume()
-    }
-    struct Response: Codable {
-        let group_id: Int
-        let tail_num: String
-        let nfc_uid: Int
-        let make: String
-        let model: String
-        let image: String
     }
 }
 
