@@ -8,40 +8,46 @@
 import Foundation
 import SwiftUI
 
-struct Airplane: Hashable, Codable {
-    let tail_num: String
-    let nfc_uid: Int
-    let make: String
-    let model: String
-    let maintenance_log_id: Int
-}
+
 
 class ViewModel: ObservableObject {
-    @Published var airplanes: [Airplane] = []
-    
+    var airplanes: [Aircraft] = AircraftGetter.getCollection()
+    // gets airplane info from url
     func fetch() {
-        guard let url = URL(string: "https://esmith87.w3.uvm.edu/") else {
+        self.airplanes = AircraftGetter.getCollection()
+    }
+    // handles "POST" api calls, called in HangarView
+    func makePOSTRequest(postRequest: Dictionary<String, AnyHashable>) { // takes the dictionary from makePostRequest
+        guard let url = URL(string: "https://esmith87.w3.uvm.edu/aircraft/") else {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _,
-            error in
+        print("making api call...")
+        
+        var request = URLRequest(url: url)
+        
+        //  method, body, headers
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        // Dictionary<String, AnyHashable>
+        let body = postRequest // set body to dict from makePostRequest
+        
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+        // make the request
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
             guard let data = data, error == nil else {
                 return
             }
-            
-            // convert to JSON
             do {
-                let airplanes = try JSONDecoder().decode([Airplane].self, from: data)
-                DispatchQueue.main.async {
-                    self?.airplanes = airplanes
-                }
+                let response = try JSONDecoder().decode(Aircraft.self, from: data)
+                print("Success: \(response)")
             }
             catch {
                 print(error)
             }
         }
-        
         task.resume()
     }
 }
+
+

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct URLImage: View {
-    let urlString: String
+    let imageName: String
     
     @State var data: Data?
     
     var body: some View {
-        if let data = data, let uiimage = UIImage(data: data) {
-            Image(uiImage: uiimage)
+        if imageName != "" {
+            Image(imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 100, height: 70)
@@ -33,7 +33,7 @@ struct URLImage: View {
         Image("")
     }
     private func fetchData() {
-        guard let url = URL(string: urlString) else {
+        guard let url = URL(string: "https://esmith87.w3.uvm.edu/aircraft/list") else {
             return
         }
         
@@ -64,9 +64,9 @@ struct ContentView: View {
 
 struct HangarView: View {
     @StateObject var viewModel = ViewModel()
+    @State private var navToPost : Bool = false
     let titleFont = Font.largeTitle.lowercaseSmallCaps()
     let bodyFont = Font.body.lowercaseSmallCaps()
-    
     
     var body: some View {
         VStack {
@@ -87,80 +87,100 @@ struct HangarView: View {
                     )
                 )
                 .ignoresSafeArea()
-            NavigationView {
+            NavigationStack { // nav stack by group id
                 List {
                     ForEach(viewModel.airplanes, id: \.self) { airplane in
-                        NavigationLink(destination:
-                                        VStack(alignment: .leading) {
-                            HStack {
-                                Text("\tTail Number")
-                                    .font(bodyFont)
-                                Spacer()
-                                Text("\(airplane.tail_num)\t")
-                                    .font(bodyFont)
-                            }
-                            Spacer()
-                            HStack {
-                                Text("\tNFC Chip UID")
-                                    .font(bodyFont)
-                                Spacer()
-                                Text("\(String(airplane.nfc_uid))\t")
-                                    .font(bodyFont)
-                            }
-                            Spacer()
-                            HStack {
-                                Text("\tMake")
-                                    .font(bodyFont)
-                                Spacer()
-                                Text("\(String(airplane.make))\t")
-                                    .font(bodyFont)
-                            }
-                            Spacer()
-                            HStack {
-                                Text("\tModel")
-                                    .font(bodyFont)
-                                Spacer()
-                                Text("\(String(airplane.model))\t")
-                                    .font(bodyFont)
-                            }
-                            Spacer()
-                            HStack {
-                                Text("\tMaintenance Log ID")
-                                    .font(bodyFont)
-                                Spacer()
-                                Text("\(String(airplane.maintenance_log_id))\t")
-                                    .font(bodyFont)
-                            }
-                            Spacer()
-                        }
-                        )  {
-                            URLImage(urlString: String(airplane.make))
+                        NavigationLink(destination: AircraftInspector(airplane: airplane)  )  {
+                            URLImage(imageName: String(airplane.image))
                             Text(airplane.tail_num)
                                 .padding(3)
                         }
                     }
                 }
                 .navigationTitle("Airplanes")
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {                            
-                            Button {
-                                
-                            } label: {
-                                Image(systemName: "plus.app")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 40, height: 40)
-                                    .padding()
-                            }
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            navToPost = true
+                        } label: {
+                            Image(systemName: "plus.app")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                                .padding()
+                        }
+                        .navigationDestination(isPresented: $navToPost) {
+                            PostView() // move to PostView
                         }
                     }
+                }
                 .onAppear {
-                    viewModel.fetch()
+                    viewModel.fetch() // fetch all airplane list info
                 }
             }
         }
     }
 }
+
+extension String {
+    var isNumeric: Bool {
+        Double(self) != nil // ensure that nfc_uid can be an integer before posting
+    }
+}
+
+// view which handles user creation of new aircraft in POST call
+struct PostView: View {
+    @StateObject var viewModel = ViewModel()
+    
+    @State private var group_id = ""
+    @State private var tail_num = ""
+    @State private var nfc_uid = ""
+    @State private var make = ""
+    @State private var model = ""
+    @State private var image = ""
+    
+    @State private var int_group_id = 0
+    @State private var int_nfc_uid = 0
+    // image = model
+    var isFormValid: Bool {
+        !group_id.isEmpty && !tail_num.isEmpty && !nfc_uid.isEmpty && !make.isEmpty && !model.isEmpty && nfc_uid.isNumeric && group_id.isNumeric
+    }
+    
+    var body: some View {
+        NavigationView {
+            Form {
+                Section(header: Text("Aircraft Information")) {
+                    TextField("Group ID", text: $group_id)
+                    TextField("Tail Number", text: $tail_num)
+                    TextField("NFC UID", text: $nfc_uid)
+                    TextField("Make of Aircraft", text: $make)
+                    TextField("Model of Aircraft", text: $model)
+                    Button("Save") {
+                        image = model
+                        int_group_id = Int(group_id) ?? 0
+                        int_nfc_uid = Int(nfc_uid) ?? 0
+                        var post_request: [String : AnyHashable] = createPostRequest(grp_id: int_group_id, tail_num: tail_num, nfc_uid: int_nfc_uid, make: make, model: model, img: image)
+                        viewModel.makePOSTRequest(postRequest: post_request)
+                    }.disabled(!isFormValid) // disabled while form is not valid
+                }
+            }
+            .navigationTitle("Add Aircraft")
+        }
+    }
+}
+
+func createPostRequest(grp_id: Int, tail_num: String, nfc_uid: Int, make: String, model: String, img: String) -> Dictionary<String, AnyHashable> {
+    var postRequest: [String : AnyHashable] = [:]
+    postRequest["group_id"] = grp_id
+    postRequest["tail_num"] = tail_num
+    postRequest["nfc_uid"] = nfc_uid
+    postRequest["make"] = make
+    postRequest["model"] = model
+    postRequest["image"] = img
+
+    return postRequest
+}
+
 
 #Preview {
     ContentView()
