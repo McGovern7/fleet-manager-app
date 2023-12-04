@@ -29,9 +29,16 @@ struct AccountView: View {
                 LoginView(username: $username, password: $password)
             } else {
                 RegisterView(username: $username, password: $password, repPassword: $passRepeat, groupID: $groupID)
+                    .ignoresSafeArea()
             }
             VStack {
-                Button(action: {/* SQL Post here */}) {
+                Button(action: {
+                    if !loginView {
+                        intGroupID = Int(groupID) ?? 0
+                        var post_request: [String : AnyHashable] = acctPostRequest(username: username, password: password, groupID: intGroupID)
+                        viewModel.userPOSTRequest(postRequest: post_request)
+                    }
+                }) {
                     Text(loginView ? "Login" : "Register")
                         .font(bodyFont)
                         .fontWeight(.heavy)
@@ -43,11 +50,10 @@ struct AccountView: View {
                 }
                 Button(action: {
                     loginView.toggle()
-                    if !loginView {
-                        intGroupID = Int(groupID) ?? 0
-                        var post_request: [String : AnyHashable] = acctPostRequest(username: username, password: password, groupID: intGroupID)
-                        viewModel.userPOSTRequest(postRequest: post_request)
-                    }
+                    username = ""
+                    password = ""
+                    passRepeat = ""
+                    groupID = ""
                 }) {
                     Text(loginView ? "Register" : "Login")
                         .font(bodyFont)

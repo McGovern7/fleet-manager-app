@@ -29,7 +29,7 @@ struct HomeView: View {
             )
             .ignoresSafeArea()
         Spacer()
-        AccountView()
+        AccountView().ignoresSafeArea()
         Spacer()
     }
 }

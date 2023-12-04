@@ -59,6 +59,7 @@ struct ContentView: View {
         }
         Spacer()
         CustomTabBar(selectedTab: $selectedTab)
+            .ignoresSafeArea()
     }
 }
 
