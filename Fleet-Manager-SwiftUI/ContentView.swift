@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreNFC
 
 struct URLImage: View {
     let imageName: String
@@ -156,18 +157,19 @@ extension String {
 struct PostView: View {
     @StateObject var viewModel = ViewModel()
     
+    @ObservedObject var NFCR = MiFareReader()
+    
     @State private var group_id = ""
     @State private var tail_num = ""
-    @State private var nfc_uid = ""
     @State private var make = ""
     @State private var model = ""
     @State private var image = ""
     
     @State private var int_group_id = 0
-    @State private var int_nfc_uid = 0
+    @State private var int_nfc_uid: UInt64 = 0
     // image = model
     var isFormValid: Bool {
-        !group_id.isEmpty && !tail_num.isEmpty && !nfc_uid.isEmpty && !make.isEmpty && !model.isEmpty && nfc_uid.isNumeric && group_id.isNumeric
+        !group_id.isEmpty && !tail_num.isEmpty && !make.isEmpty && !model.isEmpty && group_id.isNumeric
     }
     
     var body: some View {
@@ -176,14 +178,26 @@ struct PostView: View {
                 Section(header: Text("Aircraft Information")) {
                     TextField("Group ID", text: $group_id)
                     TextField("Tail Number", text: $tail_num)
-                    TextField("NFC UID", text: $nfc_uid)
+                    HStack{
+                        TextField("NFC UID", value: $NFCR.intID, format: .number).disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                        if NFCTagReaderSession.readingAvailable{
+                            Button(action: {
+                                NFCR.read()
+                            }){
+                                Image(systemName:"sensor.tag.radiowaves.forward")
+                                    .font(.title)
+                                    .foregroundColor(.accentColor)
+                            }
+                        }
+                        
+                    }
                     TextField("Make of Aircraft", text: $make)
                     TextField("Model of Aircraft", text: $model)
                     Button("Save") {
                         image = model
                         int_group_id = Int(group_id) ?? 0
-                        int_nfc_uid = Int(nfc_uid) ?? 0
-                        var post_request: [String : AnyHashable] = createPostRequest(grp_id: int_group_id, tail_num: tail_num, nfc_uid: int_nfc_uid, make: make, model: model, img: image)
+                        int_nfc_uid = NFCR.intID
+                        var post_request: [String : AnyHashable] = createPostRequest(grp_id: int_group_id, tail_num: tail_num, nfc_uid: Int(int_nfc_uid), make: make, model: model, img: image)
                         viewModel.makePOSTRequest(postRequest: post_request)
                     }.disabled(!isFormValid) // disabled while form is not valid
                 }
