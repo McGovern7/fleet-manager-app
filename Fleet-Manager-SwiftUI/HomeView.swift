@@ -10,6 +10,10 @@ import SwiftUI
 struct HomeView: View {
     let titleFont = Font.largeTitle.lowercaseSmallCaps()
     
+    @Binding var signedIn: Bool
+    @State var username: String = ""
+    @State var groupID: String = ""
+    
     var body: some View {
         Text("Home")
             .font(titleFont.monospaced())
@@ -29,11 +33,15 @@ struct HomeView: View {
             )
             .ignoresSafeArea()
         Spacer()
-        AccountView().ignoresSafeArea()
+        AccountView(signedIn: $signedIn, username: $username, groupID: $groupID).ignoresSafeArea()
         Spacer()
     }
 }
 
-#Preview {
-    HomeView()
+struct HomeView_Previews: PreviewProvider {
+    @State static var signedIn: Bool = false
+    
+    static var previews: some View {
+        HomeView(signedIn: $signedIn)
+    }
 }

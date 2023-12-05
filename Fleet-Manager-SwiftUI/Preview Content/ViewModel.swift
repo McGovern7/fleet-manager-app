@@ -12,9 +12,11 @@ import SwiftUI
 
 class ViewModel: ObservableObject {
     var airplanes: [Aircraft] = AircraftGetter.getCollection()
+    var users: [User] = UserGetter.getCollection()
     // gets airplane info from url
     func fetch() {
         self.airplanes = AircraftGetter.getCollection()
+        self.users = UserGetter.getCollection()
     }
     // handles "POST" api calls, called in HangarView
     func makePOSTRequest(postRequest: Dictionary<String, AnyHashable>) { // takes the dictionary from makePostRequest

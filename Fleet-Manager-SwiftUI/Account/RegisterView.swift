@@ -18,7 +18,7 @@ struct RegisterView: View {
     
     var body: some View {
         VStack {
-            Text("Welcome")
+            Text("Register")
                 .font(titleFont.monospaced())
                 .fontWeight(.bold)
                 .padding(.bottom, 42)

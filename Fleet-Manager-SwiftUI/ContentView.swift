@@ -46,20 +46,23 @@ struct URLImage: View {
 
 struct ContentView: View {
     @State private var selectedTab: Tab = .home
+    @State var signedIn: Bool = false
     
     var body: some View {
         
         switch selectedTab {
         case .home:
-            HomeView()
+            HomeView(signedIn: $signedIn)
         case .hangar:
             HangarView()
         case .scan:
             ScanView()
         }
-        Spacer()
-        CustomTabBar(selectedTab: $selectedTab)
-            .ignoresSafeArea()
+        if signedIn {
+            Spacer()
+            CustomTabBar(selectedTab: $selectedTab)
+                .ignoresSafeArea()
+        }
     }
 }
 

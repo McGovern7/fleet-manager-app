@@ -16,7 +16,7 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
-            Text("Welcome")
+            Text("Login")
                 .font(titleFont.monospaced())
                 .fontWeight(.bold)
                 .padding(.bottom, 42)
