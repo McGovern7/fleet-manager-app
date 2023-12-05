@@ -47,43 +47,23 @@ struct URLImage: View {
 
 struct ContentView: View {
     @State private var selectedTab: Tab = .home
+    @State var signedIn: Bool = false
     
     var body: some View {
         
         switch selectedTab {
         case .home:
-            HomeView()
+            HomeView(signedIn: $signedIn)
         case .hangar:
             HangarView()
         case .scan:
             ScanView()
         }
-        Spacer()
-        CustomTabBar(selectedTab: $selectedTab)
-    }
-}
-
-struct HomeView: View {
-    let titleFont = Font.largeTitle.lowercaseSmallCaps()
-    
-    var body: some View {
-        Text("Home")
-            .font(titleFont.monospaced())
-            .padding(20)
-            .padding(.top, 50)
-            .frame(
-                maxWidth: .infinity,
-                alignment: .center
-            )
-            .background(Color(red: 56/255, green: 223/255, blue: 223/255)
-                .ignoresSafeArea())
-            .clipShape(
-                .rect(
-                    bottomLeadingRadius: 30,
-                    bottomTrailingRadius: 30
-                )
-            )
-            .ignoresSafeArea()
+        if signedIn {
+            Spacer()
+            CustomTabBar(selectedTab: $selectedTab)
+                .ignoresSafeArea()
+        }
     }
 }
 

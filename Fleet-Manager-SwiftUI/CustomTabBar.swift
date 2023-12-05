@@ -51,7 +51,7 @@ struct CustomTabBar: View {
                     }
                 }
             }
-            .padding(.bottom, 30)
+            .padding([.bottom, .leading, .trailing], 30)
             .frame(maxWidth: .infinity)
             .frame(height: 180)
             .background(Color(red: 85/255, green: 214/255, blue: 175/255))
